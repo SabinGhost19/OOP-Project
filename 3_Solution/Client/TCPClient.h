@@ -14,6 +14,8 @@ private:
 	struct addrinfo hints;
 
 	SOCKET sock;
+
+	int sock_init();
 public:
 	TCPClient();
 	void connect(const char const* ip_dest, short port_dest);

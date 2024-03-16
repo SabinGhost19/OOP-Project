@@ -1,13 +1,28 @@
 #include "TCPClient.h"
 
+int TCPClient::sock_init()
+{
+	WSADATA wsaData;
+	int iResult;
+
+	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	if (iResult != 0) {
+		printf("WSAStartup failed with error: %d\n", iResult);
+		return -1;
+	}
+
+	return 0;
+}
+
 TCPClient::TCPClient()
 {
+	sock_init();
+
 	int iResult;
 	ZeroMemory(&hints, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
-
 
 }
 

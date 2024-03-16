@@ -1,8 +1,24 @@
 #include "TCPServer.h"
 
+int TCPServer::sock_init()
+{
+    WSADATA wsaData;
+    int iResult;
+
+    // Initialize Winsock
+    iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+    if (iResult != 0) {
+        printf("WSAStartup failed with error: %d\n", iResult);
+        return -1;
+    }
+
+    return 0;
+}
+
 TCPServer::TCPServer(short listen_port) : port(listen_port)
 {
-  
+    sock_init();
+
     int iResult;
 
     ZeroMemory(&hints, sizeof(hints));
@@ -44,6 +60,7 @@ TCPServer::TCPServer(short listen_port) : port(listen_port)
         WSACleanup();
         exit(-1);
     }
+
 }
 
 void TCPServer::wait_connection()
