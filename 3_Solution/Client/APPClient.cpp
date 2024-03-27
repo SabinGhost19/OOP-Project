@@ -8,7 +8,7 @@ APPClient* APPClient::getInstance()
         return instance;
     instance = new APPClient;
     instance->tcpClient = new TCPClient();
-    instance->tcpClient->connect("127.0.0.1", 12345);
+    instance->tcpClient->connect("25.42.174.199", 12345);
     return instance;
 }
 
