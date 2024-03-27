@@ -1,16 +1,11 @@
-// Need to link with Ws2_32.lib
-#pragma comment (lib, "Ws2_32.lib")
-#define _CRT_SECURE_NO_WARNINGS
-#include "APPClient.h"
-#include <cstdio>
+#include "mainwindow.h"
 
-int main() {
+#include <QApplication>
 
-	int read_bytes;
-	char send_buffer[1024];
-
-	for (;;) {
-		scanf("%s", send_buffer);
-		APPClient::getInstance()->getTcpClient()->send(send_buffer, strlen(send_buffer));
-	}
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
