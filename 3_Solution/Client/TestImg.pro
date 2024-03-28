@@ -12,22 +12,31 @@ CONFIG += c++17
 
 SOURCES += \
     TCPClient.cpp \
+    adminlogin.cpp \
+    clientlogin.cpp \
+    companylogin.cpp \
+    dashboard.cpp \
     main.cpp \
     APPClient.cpp\
     mainwindow.cpp \
-    secondwindow.cpp \
     signinwindow.cpp
 
 HEADERS += \
     TCPClient.h \
     APPClient.h\
+    adminlogin.h \
+    clientlogin.h \
+    companylogin.h \
+    dashboard.h \
     mainwindow.h \
-    secondwindow.h \
     signinwindow.h
 
 FORMS += \
+    adminlogin.ui \
+    clientlogin.ui \
+    companylogin.ui \
+    dashboard.ui \
     mainwindow.ui \
-    secondwindow.ui \
     signinwindow.ui
 
 # Default rules for deployment.

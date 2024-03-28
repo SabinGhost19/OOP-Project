@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>865</width>
-    <height>628</height>
+    <width>869</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="font">
@@ -20,11 +20,12 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{
-background-color:#FFFFFF
+background-color:#9EFFD1
 }
+
 </string>
   </property>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_circle">
    <property name="geometry">
     <rect>
      <x>-270</x>
@@ -33,22 +34,27 @@ background-color:#FFFFFF
      <height>681</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">SignInWindow{
+background-color:#9EFFD1
+}</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../../../../../../../../OneDrive/Desktop/elipsefinal.png</pixmap>
+    <pixmap>../../../../../../OneDrive/Desktop/elipsefinal.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="ClientButton">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>310</y>
-     <width>191</width>
+     <width>171</width>
      <height>81</height>
     </rect>
    </property>
@@ -56,7 +62,7 @@ background-color:#FFFFFF
     <string notr="true">QPushButton {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
     border: 1px solid rgba(200, 200, 200, 255); /* Bordura de culoare gri deschis */
-    border-radius: 10px;
+    border-radius: 40px;
     padding: 5px 10px;
     font-size: 16px;
     color: rgb(100, 100, 100); /* Textul de culoare gri */
@@ -77,7 +83,7 @@ QPushButton:pressed {
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../../../../../../../Downloads/shop.png</normaloff>../../../../../../../../../Downloads/shop.png</iconset>
+     <normaloff>../../../../../../Downloads/shop.png</normaloff>../../../../../../Downloads/shop.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -140,12 +146,12 @@ QPushButton:pressed {
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="AdminButton">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>450</y>
-     <width>191</width>
+     <width>171</width>
      <height>81</height>
     </rect>
    </property>
@@ -153,7 +159,7 @@ QPushButton:pressed {
     <string notr="true">QPushButton {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
     border: 1px solid rgba(200, 200, 200, 255); /* Bordura de culoare gri deschis */
-    border-radius: 10px;
+    border-radius: 40px;
     padding: 5px 10px;
     font-size: 16px;
     color: rgb(100, 100, 100); /* Textul de culoare gri */
@@ -174,7 +180,7 @@ QPushButton:pressed {
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../../../../../../../Downloads/admin.png</normaloff>../../../../../../../../../Downloads/admin.png</iconset>
+     <normaloff>../../../../../../Downloads/admin.png</normaloff>../../../../../../Downloads/admin.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -183,12 +189,12 @@ QPushButton:pressed {
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="CompanyButton">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>460</x>
      <y>180</y>
-     <width>191</width>
+     <width>171</width>
      <height>81</height>
     </rect>
    </property>
@@ -196,7 +202,7 @@ QPushButton:pressed {
     <string notr="true">QPushButton {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(255, 255, 255, 255));
     border: 1px solid rgba(200, 200, 200, 255); /* Bordura de culoare gri deschis */
-    border-radius: 10px;
+    border-radius: 40px;
     padding: 5px 10px;
     font-size: 16px;
     color: rgb(100, 100, 100); /* Textul de culoare gri */
@@ -217,7 +223,7 @@ QPushButton:pressed {
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../../../../../../../Downloads/box.png</normaloff>../../../../../../../../../Downloads/box.png</iconset>
+     <normaloff>../../../../../../Downloads/box.png</normaloff>../../../../../../Downloads/box.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -339,6 +345,124 @@ QPushButton:pressed {
     <string>Descirere scurta a profilui de companie</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>50</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>454</x>
+     <y>310</y>
+     <width>176</width>
+     <height>86</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color:#0AFB90;
+    border: none; /* Bordura de culoare gri deschis */
+    border-radius: 40px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: rgb(100, 100, 100); /* Textul de culoare gri */
+}
+
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(240, 240, 240, 255));
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>454</x>
+     <y>450</y>
+     <width>176</width>
+     <height>86</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color:#0AFB90;
+    border: none; /* Bordura de culoare gri deschis */
+    border-radius: 40px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: rgb(100, 100, 100); /* Textul de culoare gri */
+}
+
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(240, 240, 240, 255));
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>454</x>
+     <y>180</y>
+     <width>174</width>
+     <height>86</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color:#0AFB90;
+    border: none; /* Bordura de culoare gri deschis */
+    border-radius: 40px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: rgb(100, 100, 100); /* Textul de culoare gri */
+}
+
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(240, 240, 240, 255));
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>pushButton_2</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>label_circle</zorder>
+  <zorder>ClientButton</zorder>
+  <zorder>label</zorder>
+  <zorder>label_3</zorder>
+  <zorder>AdminButton</zorder>
+  <zorder>CompanyButton</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_8</zorder>
+  <zorder>backButton</zorder>
  </widget>
  <resources/>
  <connections/>

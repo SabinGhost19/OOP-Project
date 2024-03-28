@@ -19,7 +19,7 @@ background-color:#9EFFD1
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -50,7 +50,7 @@ QPushButton:hover {
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../../../../../../../OneDrive/Desktop/exit3.png</normaloff>../../../../../../../../../OneDrive/Desktop/exit3.png</iconset>
+      <normaloff>../../../../OneDrive/Desktop/exit3.png</normaloff>../../../../OneDrive/Desktop/exit3.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -102,7 +102,7 @@ QLineEdit:focus {
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="label_facebook">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -115,13 +115,13 @@ QLineEdit:focus {
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../../../../../../OneDrive/Desktop/facebook.png</pixmap>
+      <pixmap>../../../../OneDrive/Desktop/facebook.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_google">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -134,13 +134,13 @@ QLineEdit:focus {
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../../../../../../OneDrive/Desktop/google.png</pixmap>
+      <pixmap>../../../../OneDrive/Desktop/google.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_yahoo">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -153,14 +153,17 @@ QLineEdit:focus {
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../../../../../../OneDrive/Desktop/yahoo.png</pixmap>
+      <pixmap>../../../../OneDrive/Desktop/yahoo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_Title">
     <property name="geometry">
      <rect>
       <x>-10</x>
@@ -193,7 +196,7 @@ QLineEdit:focus {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_subtitle">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -214,7 +217,7 @@ QLineEdit:focus {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -242,7 +245,7 @@ QLineEdit:focus {
 }</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_design">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -255,13 +258,13 @@ QLineEdit:focus {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../../../../../../OneDrive/Desktop/design.png</pixmap>
+     <pixmap>../../../../OneDrive/Desktop/design.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="label_titleright">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -289,7 +292,7 @@ QLineEdit:focus {
      <string>New here ?</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="SignInButton">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -298,10 +301,13 @@ QLineEdit:focus {
       <height>71</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-family: sans-serif;
+    font-size: 20px;
     color: #fff;
     background-color: #6188FF;
     padding: 12px 24px;
@@ -314,6 +320,8 @@ QLineEdit:focus {
 QPushButton:hover {
     background-color: #0056b3;
 }
+/* Stil pentru butoanele QPushButton */
+
 
 </string>
     </property>
@@ -321,7 +329,7 @@ QPushButton:hover {
      <string>Sign Up</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="LoginButton">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -332,14 +340,14 @@ QPushButton:hover {
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
+      <family>sans-serif</family>
       <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: sans-serif;
+  font-size: 20px;
   color: #fff;
   background-color: #007bff;
   padding: 12px 24px;
@@ -360,7 +368,7 @@ QPushButton:hover {
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="label_logo">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -373,23 +381,23 @@ QPushButton:hover {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../../../../../../OneDrive/Desktop/k.jpg</pixmap>
+     <pixmap>../../../../OneDrive/Desktop/k.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>label_6</zorder>
+   <zorder>label_design</zorder>
    <zorder>frame</zorder>
-   <zorder>pushButton</zorder>
+   <zorder>exitButton</zorder>
    <zorder>lineEdit</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_5</zorder>
-   <zorder>lineEdit_3</zorder>
-   <zorder>label_7</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>label_8</zorder>
+   <zorder>label_Title</zorder>
+   <zorder>label_subtitle</zorder>
+   <zorder>lineEdit_2</zorder>
+   <zorder>label_titleright</zorder>
+   <zorder>SignInButton</zorder>
+   <zorder>LoginButton</zorder>
+   <zorder>label_logo</zorder>
   </widget>
  </widget>
  <resources/>
