@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APPServer.cpp" />
+    <ClCompile Include="BDCom.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TCPServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APPServer.h" />
+    <ClInclude Include="BDCom.h" />
     <ClInclude Include="TCPServer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
