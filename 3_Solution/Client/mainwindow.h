@@ -2,10 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "secondwindow.h"
 #include"signinwindow.h"
-
-
+#include"dashboard.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -27,16 +25,17 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_exitButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_SignInButton_clicked();
+
+    void on_LoginButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     SignInWindow*signin=nullptr;
-    SecondWindow*secondW=nullptr;
+    DashBoard*dashboard=nullptr;
 };
 #endif // MAINWINDOW_H
 

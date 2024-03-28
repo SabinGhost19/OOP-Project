@@ -15,8 +15,18 @@ public:
     explicit SignInWindow(QWidget *parent = nullptr);
     ~SignInWindow();
 
+private slots:
+    void on_backButton_clicked();
+
+    void on_CompanyButton_clicked();
+
+    void on_ClientButton_clicked();
+
+    void on_AdminButton_clicked();
+
 private:
     Ui::SignInWindow *ui;
+
 };
 
 #endif // SIGNINWINDOW_H

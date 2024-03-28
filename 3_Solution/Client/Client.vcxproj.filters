@@ -15,27 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TCPClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TCPServer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="APPServer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BDCom.cpp">
+    <ClCompile Include="APPClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TCPServer.h">
+    <ClInclude Include="TCPClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="APPServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BDCom.h">
+    <ClInclude Include="APPClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

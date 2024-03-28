@@ -19,21 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APPServer.cpp" />
-    <ClCompile Include="BDCom.cpp" />
+    <ClCompile Include="APPClient.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TCPServer.cpp" />
+    <ClCompile Include="TCPClient.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="APPServer.h" />
-    <ClInclude Include="BDCom.h" />
-    <ClInclude Include="TCPServer.h" />
+    <ClInclude Include="APPClient.h" />
+    <ClInclude Include="TCPClient.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c70559ee-4ba3-4cc2-88de-e861eb0e1ef2}</ProjectGuid>
-    <RootNamespace>Server</RootNamespace>
+    <ProjectGuid>{a8aad640-eab0-4547-85a8-308e0ca04a31}</ProjectGuid>
+    <RootNamespace>Client</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
