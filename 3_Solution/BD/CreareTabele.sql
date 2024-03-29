@@ -20,6 +20,8 @@ CREATE TABLE ContClient
 	Parola varchar(50),
 )
 
+INSERT INTO ContClient (Email,Parola) VALUES ('mihaigeorge985@yahoo.com','Parola');
+
 CREATE TABLE Client
 (
 	IDClient int IDENTITY(1,1) NOT NULL PRIMARY KEY,
