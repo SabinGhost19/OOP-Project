@@ -86,36 +86,32 @@ void MainWindow::on_exitButton_clicked()
 
 void MainWindow::on_LoginButton_clicked()
 {
-    char name[50];
-    char username[50];
-    strcpy(name,ui->lineEdit->text().toUtf8());
-    strcpy(username,ui->lineEdit_2->text().toUtf8());
+    std::string email;
+    email = ui->lineEdit->text().toStdString();
 
+    std::string password;
+    password = ui->lineEdit_2->text().toStdString();
 
+    std::string buffer="1";
+    buffer +=email;
+    buffer +="#";
+    buffer +=password;
 
-    //-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    if((strcmp(name,"A")==0) && (strcmp(username,"M")==0)){
+    APPClient::getInstance()->getTcpClient()->send(buffer.c_str(), buffer.length());
 
+    char bufferRecv[1024];
+    int recv_bytes=0;
 
-        APPClient::getInstance()->getTcpClient()->send(name, strlen(name));
-        APPClient::getInstance()->getTcpClient() ->send(username, strlen(username));
-      //---VERIFICARE DE DATE-----
-        //un if :)
-        dashboard= new DashBoard(this);
-
-        this->close();
-        dashboard->show();
-
-         QMessageBox::information(this,"Login","Name and Username are correct");
-
-
-    }else{
-        QMessageBox::warning(this,"Login","Name and Username are INCORRECT");
+    while(recv_bytes==0)
+    {
+        recv_bytes = APPClient::getInstance()->getTcpClient()->recv(bufferRecv, 1024);
+        bufferRecv[recv_bytes] = '\0';
     }
-
-
-
-
-
+    if(strcmp(bufferRecv,"LOGGED IN SUCCESSFULLY")==0)
+        QMessageBox::information(this,"Login","LOGGED IN SUCCESSFULLY");
+    else if(strcmp(bufferRecv,"YOUR EMAIL ADDRESS ISN'T REGISTERED")==0)
+        QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
+    else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
+        QMessageBox::warning(this,"Login","WRONG PASSWORD!");
 }
 

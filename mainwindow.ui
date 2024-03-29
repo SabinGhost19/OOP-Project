@@ -115,7 +115,7 @@ QLineEdit:focus {
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../OneDrive/Desktop/facebook.png</pixmap>
+      <pixmap>img/facebook.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
