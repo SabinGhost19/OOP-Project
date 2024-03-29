@@ -25,11 +25,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setWindowFlags(Qt::FramelessWindowHint);
    //setare imagini
-    QPixmap pixmapG("C:/Users/sabin/OneDrive/Desktop/google.png");
-    QPixmap pixmapF("C:/Users/sabin/OneDrive/Desktop/facebook.png");
-    QPixmap pixmapDesign("C:/Users/sabin/OneDrive/Desktop/design.png");
-    QPixmap imageY("C:/Users/sabin/OneDrive/Desktop/yahoo.png");
-    QPixmap logo("C:/Users/sabin/OneDrive/Desktop/k.jpg");
+    QPixmap pixmapG(":/img/img/google.png");
+   // QPixmap pixmapF("C:/Users/sabin/OneDrive/Desktop/facebook.png");
+    QPixmap pixmapF(":/img/img/facebook.png");
+
+    QPixmap pixmapDesign(":/img/img/design.png");
+    QPixmap imageY(":/img/img/yahoo.png");
+    QPixmap logo(":/img/img/k.jpg");
 
 
     ui->label_design->setPixmap(pixmapDesign);
@@ -47,8 +49,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_logo->setPixmap(logo);
     ui->label_logo->setScaledContents(true);
 
+
   //setare iconuri butoane
-    QIcon icon("C:/Users/sabin/OneDrive/Desktop/exit3.png");
+    QIcon icon(":/img/img/exit3.png");
 
     ui->exitButton->setIcon(icon);
      QSize iconSize(40, 40);
@@ -67,7 +70,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_SignInButton_clicked()
 {
 
-    signin= new SignInWindow(this);
+    signin = new SignInWindow(this);
 
     this->close();
     signin->show();

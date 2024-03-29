@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/admin.png</file>
+        <file>img/box.png</file>
+        <file>img/circle.png</file>
+        <file>img/design.png</file>
+        <file>img/exit3.png</file>
+        <file>img/facebook.png</file>
+        <file>img/google.png</file>
+        <file>img/k.jpg</file>
+        <file>img/shop.png</file>
+        <file>img/yahoo.png</file>
+    </qresource>
+</RCC>

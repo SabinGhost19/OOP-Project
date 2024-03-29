@@ -6,6 +6,8 @@
 #include <cstdio>
 #include"APPClient.h"
 #include<QMessageBox>
+#include <QtWidgets>
+
 
 ClientLogin::ClientLogin(QWidget *parent)
     : QDialog(parent)
@@ -20,6 +22,37 @@ ClientLogin::ClientLogin(QWidget *parent)
     ui->lineEdit_3->setPlaceholderText("Email");
     // Setarea textului implicit pentru un QLineEdit numit lineEdit
     ui->lineEdit_4->setPlaceholderText("Password");
+
+
+    /*QWidget *centralWidget = new QWidget;
+
+    // Create a vertical layout for the central widget
+    QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
+
+    // Create a scroll area widget
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true); // Allow the content to resize with the scroll area
+
+    // Create a widget to serve as the content of the scroll area
+    QWidget *scrollContent = new QWidget;
+    QVBoxLayout *scrollLayout = new QVBoxLayout(scrollContent);
+
+    // Add some widgets to the scroll area content
+    for (int i = 0; i < 100; ++i) {
+        QLabel *label = new QLabel(QString("Label %1").arg(i + 1));
+        scrollLayout->addWidget(label);
+    }
+
+    // Set the scroll area content widget
+    scrollArea->setWidget(scrollContent);
+
+    // Add the scroll area to the central layout
+    centralLayout->addWidget(scrollArea);
+
+    // Set the layout of the central widget to the main window
+    this->setLayout(centralLayout);*/
+
+
 }
 
 ClientLogin::~ClientLogin()
