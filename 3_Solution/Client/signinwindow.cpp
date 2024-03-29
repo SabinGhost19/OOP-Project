@@ -11,16 +11,16 @@ SignInWindow::SignInWindow(QWidget *parent)
     ui->setupUi(this);
     //this->setWindowFlags(Qt::FramelessWindowHint);
 
-    QPixmap circle("C:/Users/sabin/OneDrive/Desktop/circle.png");
+    QPixmap circle(":/img/img/circle.png");
 
 
     ui->label_circle->setPixmap(circle);
     ui->label_circle->setScaledContents(true);
 
 
-    QIcon admin("C:/Users/sabin/OneDrive/Desktop/admin.png");
-    QIcon box("C:/Users/sabin/OneDrive/Desktop/box.png");
-    QIcon shop("C:/Users/sabin/OneDrive/Desktop/shop.png");
+    QIcon admin(":/img/img/admin.png");
+    QIcon box(":/img/img/box.png");
+    QIcon shop(":/img/img/shop.png");
 
     ui->CompanyButton->setIcon(box);
     ui->AdminButton->setIcon(admin);
