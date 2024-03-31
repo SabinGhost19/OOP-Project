@@ -10,5 +10,18 @@
         <file>img/k.jpg</file>
         <file>img/shop.png</file>
         <file>img/yahoo.png</file>
+        <file>img/logo_nou.jpeg</file>
+        <file>img/cart_w.png</file>
+        <file>img/cart.png</file>
+        <file>img/dashboard.png</file>
+        <file>img/dashboard_w.png</file>
+        <file>img/notifications.png</file>
+        <file>img/notifications_w.png</file>
+        <file>img/offert.png</file>
+        <file>img/offert_w.png</file>
+        <file>img/profile_n.png</file>
+        <file>img/profile_w.png</file>
+        <file>img/signout.png</file>
+        <file>img/signout_w.png</file>
     </qresource>
 </RCC>
