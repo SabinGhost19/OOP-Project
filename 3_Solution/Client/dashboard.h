@@ -1,13 +1,13 @@
 #ifndef DASHBOARD_H
 #define DASHBOARD_H
 
-#include <QDialog>
+#include <QWidget>
 
 namespace Ui {
 class DashBoard;
 }
 
-class DashBoard : public QDialog
+class DashBoard : public QWidget
 {
     Q_OBJECT
 
