@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPixmap pixmapDesign(":/img/img/design.png");
     QPixmap imageY(":/img/img/yahoo.png");
-    QPixmap logo(":/img/img/k.jpg");
+    QPixmap logo(":/img/img/logo_nou.jpeg");
 
 
     ui->label_design->setPixmap(pixmapDesign);
@@ -86,6 +86,7 @@ void MainWindow::on_exitButton_clicked()
 
 void MainWindow::on_LoginButton_clicked()
 {
+    /*
     std::string email;
     email = ui->lineEdit->text().toStdString();
 
@@ -113,5 +114,13 @@ void MainWindow::on_LoginButton_clicked()
         QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
     else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
         QMessageBox::warning(this,"Login","WRONG PASSWORD!");
+
+*/
+
+
+    this->close();
+    DashBoard*dashboard=new DashBoard();
+    dashboard->show();
+
 }
 
