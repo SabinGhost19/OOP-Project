@@ -23,5 +23,6 @@
         <file>img/profile_w.png</file>
         <file>img/signout.png</file>
         <file>img/signout_w.png</file>
+        <file>img/iphone15.webp</file>
     </qresource>
 </RCC>
