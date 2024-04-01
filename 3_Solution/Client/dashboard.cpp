@@ -10,7 +10,7 @@ DashBoard::DashBoard(QWidget *parent)
     ui->setupUi(this);
 
 
-
+    ui->widget_2->hide();
     QIcon cart(":/img/img/cart_w.png");
     QIcon profile(":/img/img/profile_w.png");
     QIcon notifications(":/img/img/notifications_w.png");
