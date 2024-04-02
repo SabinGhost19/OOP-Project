@@ -15,42 +15,107 @@ ClientLogin::ClientLogin(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->lineEdit->setPlaceholderText("First Name");
-    // Setarea textului implicit pentru un QLineEdit numit lineEdit
-    ui->lineEdit_2->setPlaceholderText("Last Name");
+    ui->Nume->setPlaceholderText("Nume");
+    ui->Prenume->setPlaceholderText("Prenume");
+    ui->Tara->setPlaceholderText("Tara");
+    ui->Email->setPlaceholderText("Email");
+    ui->Parola->setPlaceholderText("Parola");
+    ui->DataNasterii->setPlaceholderText("Data Nasterii");
+    ui->Judet->setPlaceholderText("Judet");
+    ui->NumarApartament->setPlaceholderText("App. Nr.");
+    ui->Oras->setPlaceholderText("Oras");
+    ui->Strada->setPlaceholderText("Strada");
+    ui->Scara->setPlaceholderText("Scara");
+    ui->Numarul->setPlaceholderText("Numarul");
+    ui->CodPostal->setPlaceholderText("Cod Postal");
+    ui->Telefon->setPlaceholderText("Telefon");
 
-    ui->lineEdit_3->setPlaceholderText("Email");
-    // Setarea textului implicit pentru un QLineEdit numit lineEdit
-    ui->lineEdit_4->setPlaceholderText("Password");
 
+    ui->Email->setStyleSheet("QLineEdit {"
+                                "background-color: #f2f2f2;"
+                                "border: 1px solid #ccc;"
+                                "border-radius: 5px;"
+                                "padding: 5px;"
+                                "}");
 
-    /*QWidget *centralWidget = new QWidget;
-
-    // Create a vertical layout for the central widget
-    QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
-
-    // Create a scroll area widget
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidgetResizable(true); // Allow the content to resize with the scroll area
-
-    // Create a widget to serve as the content of the scroll area
-    QWidget *scrollContent = new QWidget;
-    QVBoxLayout *scrollLayout = new QVBoxLayout(scrollContent);
-
-    // Add some widgets to the scroll area content
-    for (int i = 0; i < 100; ++i) {
-        QLabel *label = new QLabel(QString("Label %1").arg(i + 1));
-        scrollLayout->addWidget(label);
-    }
-
-    // Set the scroll area content widget
-    scrollArea->setWidget(scrollContent);
-
-    // Add the scroll area to the central layout
-    centralLayout->addWidget(scrollArea);
-
-    // Set the layout of the central widget to the main window
-    this->setLayout(centralLayout);*/
+    ui->Parola->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->DataNasterii->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Judet->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->NumarApartament->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Oras->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Strada->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Scara->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Numarul->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->CodPostal->setStyleSheet("QLineEdit {"
+                               "background-color: #f2f2f2;"
+                               "border: 1px solid #ccc;"
+                               "border-radius: 5px;"
+                               "padding: 5px;"
+                               "}");
+    ui->Telefon->setStyleSheet("QLineEdit {"
+                               "background-color: #f2f2f2;"
+                               "border: 1px solid #ccc;"
+                               "border-radius: 5px;"
+                               "padding: 5px;"
+                               "}");
+    ui->Nume->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Prenume->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
+    ui->Tara->setStyleSheet("QLineEdit {"
+                             "background-color: #f2f2f2;"
+                             "border: 1px solid #ccc;"
+                             "border-radius: 5px;"
+                             "padding: 5px;"
+                             "}");
 
 
 }
@@ -70,35 +135,84 @@ void ClientLogin::on_pushButton_clicked()
 
 void ClientLogin::on_LoginButton_clicked()
 {
-    char name[50];
-    char username[50];
-    char email[50];
-    char password[50];
-    strcpy(name,ui->lineEdit->text().toUtf8());
-    strcpy(username,ui->lineEdit_2->text().toUtf8());
-    strcpy(email,ui->lineEdit->text().toUtf8());
-    strcpy(password,ui->lineEdit_2->text().toUtf8());
 
 
-    //all set to n for testing
-    //-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    if((strcmp(name,"n")==0) && (strcmp(username,"n")==0)&&(strcmp(email,"n")==0) && (strcmp(username,"n")==0)){
+   //------DATE CONT------------------
+    std::string email;
+    email = ui->Email->text().toStdString();
+
+    std::string password;
+    password = ui->Parola->text().toStdString();
 
 
-        APPClient::getInstance()->getTcpClient()->send(name, strlen(name));
-        APPClient::getInstance()->getTcpClient() ->send(username, strlen(username));
-        //---VERIFICARE DE DATE-----
-        //un if :)
-        dashboard= new DashBoard(this);
 
-        this->close();
-        dashboard->show();
+   ///------DATE PERSONALE------------
+    std::string nume;
+    nume = ui->Nume->text().toStdString();
 
-        QMessageBox::information(this,"Login","Name and Username are correct");
+    std::string prenume;
+    prenume = ui->Prenume->text().toStdString();
+
+    std::string telefon;
+    telefon = ui->Telefon->text().toStdString();
+
+    std::string DataNasterii;
+    DataNasterii = ui->DataNasterii->text().toStdString();
 
 
-    }else{
-        QMessageBox::warning(this,"Login","Name and Username are INCORRECT");
-    }
+
+    //----------DATE ADRESA----------
+    std::string tara;
+    tara = ui->Tara->text().toStdString();
+
+    std::string oras;
+    oras = ui->Oras->text().toStdString();
+
+    std::string judet;
+    judet = ui->Judet->text().toStdString();
+
+    std::string strada;
+    strada = ui->Strada->text().toStdString();
+
+    std::string scara;
+    scara = ui->Scara->text().toStdString();
+
+    std::string numar;
+    numar = ui->Numarul->text().toStdString();
+
+    std::string numarApp;
+    numarApp = ui->NumarApartament->text().toStdString();
+
+    std::string codPostal;
+    codPostal = ui->CodPostal->text().toStdString();
+
+
+
+
+
+    // std::string buffer="1";
+    // buffer +=email;
+    // buffer +="#";
+    // buffer +=password;
+
+    // APPClient::getInstance()->getTcpClient()->send(buffer.c_str(), buffer.length());
+
+    // char bufferRecv[1024];
+    // int recv_bytes=0;
+
+    // while(recv_bytes==0)
+    // {
+    //     recv_bytes = APPClient::getInstance()->getTcpClient()->recv(bufferRecv, 1024);
+    //     bufferRecv[recv_bytes] = '\0';
+    // }
+    // if(strcmp(bufferRecv,"LOGGED IN SUCCESSFULLY")==0)
+    //     QMessageBox::information(this,"Login","LOGGED IN SUCCESSFULLY");
+    // else if(strcmp(bufferRecv,"YOUR EMAIL ADDRESS ISN'T REGISTERED")==0)
+    //     QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
+    // else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
+    //     QMessageBox::warning(this,"Login","WRONG PASSWORD!");
+
+
+
 }
 
