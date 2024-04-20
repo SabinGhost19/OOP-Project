@@ -86,36 +86,36 @@ void MainWindow::on_exitButton_clicked()
 
 void MainWindow::on_LoginButton_clicked()
 {
-    /*
-    std::string email;
-    email = ui->lineEdit->text().toStdString();
 
-    std::string password;
-    password = ui->lineEdit_2->text().toStdString();
+    // std::string email;
+    // email = ui->lineEdit->text().toStdString();
 
-    std::string buffer="1";
-    buffer +=email;
-    buffer +="#";
-    buffer +=password;
+    // std::string password;
+    // password = ui->lineEdit_2->text().toStdString();
 
-    APPClient::getInstance()->getTcpClient()->send(buffer.c_str(), buffer.length());
+    // std::string buffer="1";
+    // buffer +=email;
+    // buffer +="#";
+    // buffer +=password;
 
-    char bufferRecv[1024];
-    int recv_bytes=0;
+    // APPClient::getInstance()->getTcpClient()->send(buffer.c_str(), buffer.length());
 
-    while(recv_bytes==0)
-    {
-        recv_bytes = APPClient::getInstance()->getTcpClient()->recv(bufferRecv, 1024);
-        bufferRecv[recv_bytes] = '\0';
-    }
-    if(strcmp(bufferRecv,"LOGGED IN SUCCESSFULLY")==0)
-        QMessageBox::information(this,"Login","LOGGED IN SUCCESSFULLY");
-    else if(strcmp(bufferRecv,"YOUR EMAIL ADDRESS ISN'T REGISTERED")==0)
-        QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
-    else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
-        QMessageBox::warning(this,"Login","WRONG PASSWORD!");
+    // char bufferRecv[1024];
+    // int recv_bytes=0;
 
-*/
+    // while(recv_bytes==0)
+    // {
+    //     recv_bytes = APPClient::getInstance()->getTcpClient()->recv(bufferRecv, 1024);
+    //     bufferRecv[recv_bytes] = '\0';
+    // }
+    // if(strcmp(bufferRecv,"LOGGED IN SUCCESSFULLY")==0)
+    //     QMessageBox::information(this,"Login","LOGGED IN SUCCESSFULLY");
+    // else if(strcmp(bufferRecv,"YOUR EMAIL ADDRESS ISN'T REGISTERED")==0)
+    //     QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
+    // else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
+    //     QMessageBox::warning(this,"Login","WRONG PASSWORD!");
+
+
 
 
     this->close();

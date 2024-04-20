@@ -15,6 +15,17 @@ public:
     explicit DashBoard(QWidget *parent = nullptr);
     ~DashBoard();
 
+private slots:
+
+
+    void on_pushButton_clicked();
+
+    void on_signout_clicked();
+
+    void on_signout_short_clicked();
+
+    void on_search_clicked();
+
 private:
     Ui::DashBoard *ui;
 };
