@@ -54,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     QIcon icon(":/img/img/exit3.png");
 
     ui->exitButton->setIcon(icon);
-     QSize iconSize(40, 40);
+    QSize iconSize(40, 40);
     ui->exitButton->setIconSize(iconSize);
     ui->exitButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
