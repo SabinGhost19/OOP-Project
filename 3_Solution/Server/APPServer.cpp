@@ -2,6 +2,7 @@
 #include <string.h>
 #include <iostream>
 #include "APPServer.h"
+#include "ServerLogger.h"
 
 APPServer* APPServer::instance = nullptr;
 
@@ -24,23 +25,7 @@ APPServer::APPServer()
 {
     instance = nullptr;
     tcpServer = nullptr;
-}
-
-SQLWCHAR* ConvertToWideChar(const char* str)
-{
-    int wideLen = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
-    if (wideLen == 0) {
-       
-        return nullptr;
-    }
-
-    SQLWCHAR* wideStr = new SQLWCHAR[wideLen];
-    if (!MultiByteToWideChar(CP_ACP, 0, str, -1, wideStr, wideLen)) {
-        delete[] wideStr;
-        return nullptr;
-    }
-
-    return wideStr;
+    BDCommunication = nullptr;
 }
 
 bool APPServer::manageLogIn(const char* buffer)
@@ -66,7 +51,7 @@ bool APPServer::manageLogIn(const char* buffer)
     query += email;
     query += '\'';
 
-    SQLWCHAR* queryWCHAR = ConvertToWideChar(query.c_str());
+    SQLWCHAR* queryWCHAR = BDCommunication->ConvertToWideChar(query.c_str());
 
     int len = 0;
 
@@ -76,8 +61,12 @@ bool APPServer::manageLogIn(const char* buffer)
     char messageToSend[254];
     if (nrOfEmails == 0)
     {
+        std::string loggAction("LOGIN REQUEST BY EMAIL: ");
+        loggAction += email;
+        loggAction += "THERE IS NO ACCOUNT REGISTERED WITH THIS MAIL";
+        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
+
         strcpy(messageToSend, "YOUR EMAIL ADDRESS ISN'T REGISTERED");
-        std::cout << "Emailul nu este inregistrat" << std::endl;
         this->tcpServer->send(messageToSend, strlen(messageToSend));
         return false;
     }
@@ -88,25 +77,34 @@ bool APPServer::manageLogIn(const char* buffer)
     query += email;
     query += '\'';
 
-    queryWCHAR = ConvertToWideChar(query.c_str());
+    queryWCHAR = BDCommunication->ConvertToWideChar(query.c_str());
     BDCommunication->CreateConnection();
     strcpy(passwordToCheckWith, BDCommunication->GetQuery(queryWCHAR, len));
+    BDCommunication->CloseConnection();
 
     if (strcmp(passwordToCheckWith, password.c_str()) == 0)
     {
+        std::string loggAction("THE EMAIL: ");
+        loggAction += email;
+        loggAction += "LOGGED IN SUCCESFULLY";
+        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
+
         strcpy(messageToSend, "LOGGED IN SUCCESSFULLY");
-        std::cout << "LOGAT" << std::endl;
         this->tcpServer->send(messageToSend, strlen(messageToSend));
+        this->tcpServer->sendImage("C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\sigla.png");
         return true;
     }
     else
     {
+        std::string loggAction("THE EMAIL: ");
+        loggAction += email;
+        loggAction += "TRIED TO LOGGED IN WITH THE WRONG PASSWORD";
+        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
+
         strcpy(messageToSend, "WRONG PASSWORD");
-        std::cout << "PAROLA GRESITA!" << std::endl;
         this->tcpServer->send(messageToSend, strlen(messageToSend));
         return false;
     }
-    BDCommunication->CloseConnection();
 }
 
 void APPServer::deleteInstance()
@@ -130,6 +128,8 @@ bool APPServer::manageRequest(char* buffer)
     {
     case '1':
         manageLogIn(buffer);
+    case '2':
+        tcpServer->sendImage("sigla.png");
     }
     return true;
 }

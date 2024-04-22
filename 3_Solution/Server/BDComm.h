@@ -16,6 +16,7 @@ private:
     SQLWCHAR retconstring[SQL_RETURN_CODE_LEN];
 public:
 	BDComm();
+    SQLWCHAR* ConvertToWideChar(const char* str);
     void CreateConnection();
     void CloseConnection(); 
     const char* GetQuery(SQLWCHAR* query, int& len);
