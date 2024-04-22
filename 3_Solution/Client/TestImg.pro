@@ -11,35 +11,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    DataRequest.cpp \
-    LogInRequest.cpp \
-    RegisterRequest.cpp \
-    SignInRequest.cpp \
     TCPClient.cpp \
     adminlogin.cpp \
+    blankwindow.cpp \
     clientlogin.cpp \
     companylogin.cpp \
     dashboard.cpp \
-    iRequest.cpp \
-    iuser.cpp \
     main.cpp \
     APPClient.cpp\
     mainwindow.cpp \
     signinwindow.cpp
 
 HEADERS += \
-    DataRequest.h \
-    LogInRequest.h \
-    RegisterRequest.h \
-    SignInRequest.h \
     TCPClient.h \
     APPClient.h\
     adminlogin.h \
+    blankwindow.h \
     clientlogin.h \
     companylogin.h \
     dashboard.h \
-    iRequest.h \
-    iuser.h \
     mainwindow.h \
     signinwindow.h
 
