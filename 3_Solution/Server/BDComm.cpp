@@ -1,6 +1,7 @@
 ﻿#include "BDComm.h"
+#include "ServerLogger.h"
+#include "Exception.h"
 #include <iostream>
-
 
 #define SQL_RESULT_LEN 240
 #define SQL_RETURN_CODE_LEN 1000
@@ -10,6 +11,23 @@ using namespace std;
 BDComm::BDComm()
 {
     return;
+}
+
+SQLWCHAR* BDComm::ConvertToWideChar(const char* str)
+{
+    int wideLen = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
+    if (wideLen == 0) {
+       
+        return nullptr;
+    }
+
+    SQLWCHAR* wideStr = new SQLWCHAR[wideLen];
+    if (!MultiByteToWideChar(CP_ACP, 0, str, -1, wideStr, wideLen)) {
+        delete[] wideStr;
+        return nullptr;
+    }
+
+    return wideStr;
 }
 
 void BDComm::CreateConnection()
@@ -22,60 +40,30 @@ void BDComm::CreateConnection()
         CloseConnection();
     if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_DBC, sqlEnvHandle, &sqlConnHandle))
         CloseConnection();
-    cout << "Attempting connection to SQL Server...";
-    cout << "\n";
-    //connect to SQL Server  
-    //I am using a trusted connection and port 14808
-    //it does not matter if you are using default or named instance
-    //just make sure you define the server name and the port
-    //You have the option to use a username/password instead of a trusted connection
-    //but is more secure to use a trusted connection
+    ServerLogger::getInstance("SQLLogger.txt")->loggAction("CONNECTING TO SQL SERVER");
+
     switch (SQLDriverConnect(sqlConnHandle, NULL, (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 55061;DATABASE=POOProjBD;Trusted=true;",
         SQL_NTS, retconstring, 1024, NULL, SQL_DRIVER_NOPROMPT)) {
     case SQL_SUCCESS:
-        cout << "Successfully connected to SQL Server";
-        cout << "\n";
+        ServerLogger::getInstance("SQLLogger.txt")->loggAction("SUCCESFULLY CONNECTED TO SQL SERVER");
         break;
     case SQL_SUCCESS_WITH_INFO:
-        cout << "Successfully connected to SQL Server";
-        cout << "\n";
+        ServerLogger::getInstance("SQLLogger.txt")->loggAction("SUCCESFULLY CONNECTED TO SQL SERVER");
         break;
     case SQL_INVALID_HANDLE:
-        cout << "Could not connect to SQL Server";
-        cout << "\n";
-        CloseConnection();
+        ServerLogger::getInstance("SQLLogger.txt")->loggAction("CONNECTION TO SQL SERVER FAILED");
+        throw("CONNECTION TO SQL SERVER FAILED");
+        break;
     case SQL_ERROR:
-        cout << "Could not connect to SQL Server";
-        cout << "\n";
-        CloseConnection();
+        ServerLogger::getInstance("SQLLogger.txt")->loggAction("CONNECTION TO SQL SERVER FAILED");
+        throw("CONNECTION TO SQL SERVER FAILED");
+        break;
     default:
         break;
     }
-    //if there is a problem connecting then exit application
+
     if (SQL_SUCCESS != SQLAllocHandle(SQL_HANDLE_STMT, sqlConnHandle, &sqlStmtHandle))
         CloseConnection();
-    //output
-    //cout << "\n";
-    //cout << "Executing T-SQL query...";
-    //cout << "\n";
-    //if there is a problem executing the query then exit application
-    //else display query result
-    //if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR*)L"SELECT FirstName from Students", SQL_NTS)) {
-    //    cout << "Error querying SQL Server";
-    //    cout << "\n";
-    //    CloseConnection();
-    //}
-    //else {
-    //    //declare output variable and pointer
-    //    SQLCHAR sqlVersion[SQL_RESULT_LEN];
-    //    SQLLEN ptrSqlVersion;
-    //    while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
-    //        SQLGetData(sqlStmtHandle, 1, SQL_CHAR, sqlVersion, SQL_RESULT_LEN, &ptrSqlVersion);
-    //        //display query result
-    //        cout << "\nQuery Result:\n\n";
-    //        cout << sqlVersion << endl;
-    //    }
-    //}
 }
 
 void BDComm::CloseConnection()
@@ -89,10 +77,8 @@ void BDComm::CloseConnection()
 const char* BDComm::GetQuery(SQLWCHAR* query, int& len)
 {
     if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, query, SQL_NTS)) {
-        cout << "Error querying SQL Server";
-        cout << "\n";
-        CloseConnection();
-        return nullptr; // Întoarce nullptr în caz de eroare
+        ServerLogger::getInstance("SQLLogger.txt")->loggAction("QUERYING SQL SERVER FAILED");
+        throw("QUERYING SQL SERVER FAILED");
     }
     else {
         SQLCHAR sqlVersion[SQL_RESULT_LEN];

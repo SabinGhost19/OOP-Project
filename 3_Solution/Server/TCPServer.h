@@ -25,5 +25,6 @@ public:
 	SOCKET getClientSock() { return client_sock; };
 	int send(const char const* send_buf, const int size) const;
 	int recv(char* recv_buf, const int size) const;
+	int sendImage(const char* imageName);
 };
 

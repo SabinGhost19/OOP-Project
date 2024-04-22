@@ -21,13 +21,20 @@
   <ItemGroup>
     <ClCompile Include="APPServer.cpp" />
     <ClCompile Include="BDComm.cpp" />
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ServerLogger.cpp" />
     <ClCompile Include="TCPServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APPServer.h" />
     <ClInclude Include="BDComm.h" />
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="ServerLogger.h" />
     <ClInclude Include="TCPServer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\sigla.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
