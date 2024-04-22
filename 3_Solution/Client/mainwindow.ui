@@ -115,7 +115,7 @@ QLineEdit:focus {
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../OneDrive/Desktop/facebook.png</pixmap>
+      <pixmap>img/facebook.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -371,49 +371,22 @@ QPushButton:hover {
    <widget class="QLabel" name="label_logo">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>50</x>
       <y>20</y>
-      <width>301</width>
-      <height>221</height>
+      <width>141</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../OneDrive/Desktop/k.jpg</pixmap>
+     <pixmap>img/logo_nou.jpeg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="sigla">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>20</y>
-      <width>411</width>
-      <height>561</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>430</y>
-      <width>141</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <zorder>label_logo</zorder>
    <zorder>label_design</zorder>
    <zorder>frame</zorder>
    <zorder>exitButton</zorder>
@@ -424,8 +397,7 @@ QPushButton:hover {
    <zorder>label_titleright</zorder>
    <zorder>SignInButton</zorder>
    <zorder>LoginButton</zorder>
-   <zorder>sigla</zorder>
-   <zorder>label</zorder>
+   <zorder>label_logo</zorder>
   </widget>
  </widget>
  <resources/>

@@ -4,14 +4,14 @@
 class APPClient
 {
 private:
-    APPClient();
-    APPClient(APPClient& obj) = delete;
-    static APPClient* instance;
-    TCPClient* tcpClient;
+	APPClient();
+	APPClient(APPClient& obj) = delete;
+	static APPClient* instance;
+	TCPClient* tcpClient;
 public:
-    static APPClient* getInstance();
-    TCPClient* getTcpClient();
-    static void deleteInstance();
-    ~APPClient();
+	static APPClient* getInstance();
+	TCPClient* getTcpClient();
+	static void deleteInstance();
+	~APPClient();
 };
 
