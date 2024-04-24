@@ -264,7 +264,7 @@ QComboBox::item:selected {
          </size>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page_5">
          <layout class="QGridLayout" name="gridLayout_2">
@@ -395,95 +395,95 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <widget class="QLabel" name="label_5">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>401</width>
-               <height>391</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(170, 170, 255);</string>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_6">
-             <property name="geometry">
-              <rect>
-               <x>440</x>
-               <y>30</y>
-               <width>461</width>
-               <height>71</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>18</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 170, 127);</string>
-             </property>
-             <property name="text">
-              <string>TITLU</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_7">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>470</y>
-               <width>901</width>
-               <height>191</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 170, 127);</string>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_8">
-             <property name="geometry">
-              <rect>
-               <x>440</x>
-               <y>120</y>
-               <width>461</width>
-               <height>291</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 170, 127);</string>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_9">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>420</y>
-               <width>161</width>
-               <height>41</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 170, 127);</string>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0" rowspan="2">
+              <widget class="QLabel" name="imageLabel">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(170, 170, 255);</string>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="titleLabel">
+               <property name="font">
+                <font>
+                 <pointsize>18</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(0, 170, 127);</string>
+               </property>
+               <property name="text">
+                <string>TITLU</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="descriptionLabel">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(0, 170, 127);</string>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="miniTitleLabel">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 170, 127);</string>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="2">
+              <widget class="QScrollArea" name="scrollArea_3">
+               <property name="styleSheet">
+                <string notr="true">QScrollBar:vertical {
+    border: none;
+    background-color: rgba(192, 192, 192, 0.5); /* Culoare gri transparent */
+    width: 12px; /* Lățimea barei de scroll */
+    margin: 20px 0 20px 0; /* Margini de sus și jos */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::handle:vertical {
+    background-color: #707070; /* Culoarea mânerului (butonului de derulare) */
+    min-height: 20px; /* Înălțime minimă a mânerului */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; /* Nu se afișează fundalul pentru butoanele de derulare */
+}
+</string>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollContent_3">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>919</width>
+                  <height>582</height>
+                 </rect>
+                </property>
+               </widget>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

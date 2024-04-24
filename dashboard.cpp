@@ -13,6 +13,7 @@
 #include"DescriptionRequest.h"
 #include"UserClientRequest.h"
 #include"FactoryUser.h"
+#include"CommentsRequest.h"
 
 DashBoard::DashBoard(QWidget *parent,int userID)
     : QWidget(parent)
@@ -53,8 +54,79 @@ void DashBoard::ConstructProductView(int index){
     DescriptionRequest::getInstance()->SetIndex(index);
     std::string description=DescriptionRequest::getInstance()->GetDescription();
 
-    ui->label_5->setText(description.c_str());
-    ui->label_6->setText("----------------------");
+    CommentsRequest::getInstance()->SetIndex(index);
+
+    ui->scrollArea_3->setWidgetResizable(true);
+    ui->scrollArea_3->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    ui->scrollArea_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    ui->scrollArea_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->scrollArea_3->setGeometry(10, 60, 1011, 211);
+    ui->scrollArea_3->setMinimumSize(1011, 211);
+    ui->scrollArea_3->setContentsMargins(0, 0, 0, 0);
+
+    QGridLayout *gridLayout = new QGridLayout(ui->scrollContent_3);
+
+     //for(int i=0;i<CommentsRequest::getInstance()->Size();i++)
+    for (int i = 0; i < 5; ++i) {
+
+        std::pair<std::string, std::string>pair=CommentsRequest::getInstance()->GetComments();
+
+        QFrame *frame = new QFrame;
+        frame->setFixedSize(911, 171);
+        frame->setStyleSheet("background-color: white;");
+
+
+        QLabel *titleLabel = new QLabel("Titlu");
+        titleLabel->setFixedSize(161, 31);
+        titleLabel->setStyleSheet("background-color: blue;");
+        titleLabel->setText(pair.first.c_str());
+
+
+        QLabel *descriptionLabel = new QLabel("Descriere");
+        descriptionLabel->setFixedSize(881, 111);
+        descriptionLabel->setStyleSheet("background-color: blue;");
+        descriptionLabel->setText(pair.second.c_str());
+
+
+        QVBoxLayout *frameLayout = new QVBoxLayout;
+        frameLayout->addWidget(titleLabel);
+        frameLayout->addWidget(descriptionLabel);
+        frame->setLayout(frameLayout);
+
+
+        gridLayout->addWidget(frame, i, 0);
+    }
+
+    ui->imageLabel->setFixedSize(401, 391);
+    ui->imageLabel->setMinimumSize(401, 391);
+    ui->imageLabel->move(10, 20);
+    ui->imageLabel->setStyleSheet("background-color: red;");
+
+
+
+    ui->titleLabel->setFixedSize(461, 71);
+    ui->titleLabel->setMinimumSize(461, 71);
+    ui->titleLabel->move(440, 30);
+    ui->titleLabel->setStyleSheet("background-color: white;");
+
+
+
+    ui->descriptionLabel->setFixedSize(461, 291);
+    ui->descriptionLabel->setMinimumSize(461, 291);
+    ui->descriptionLabel->move(440, 120);
+    ui->descriptionLabel->setStyleSheet("background-color: yellow;");
+
+
+
+    ui->miniTitleLabel->setFixedSize(161, 41);
+    ui->miniTitleLabel->setMinimumSize(161, 41);
+    ui->miniTitleLabel->move(10, 410);
+    ui->miniTitleLabel->setStyleSheet("background-color: blue;");
+
+    ui->scrollArea_3->setWidget(ui->scrollContent_3);
+
+    ui->imageLabel->setText(description.c_str());
+    ui->titleLabel->setText("----------------------");
     ui->stackedWidget->setCurrentIndex(1);
 
 }
@@ -62,7 +134,25 @@ void DashBoard::ConstructProductView(int index){
 
 void DashBoard::adaugareFramesToDashBrd(){
 
-
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!
+    //!
+    //!
+    //! cred ca va trebui sa ne facem o clasa de produs,
+    //!
+    //! altfel nu am putea rezolva probleam cu butonul si trimiterea la pagina de view a lui
+    //!
+    //!
+    //!
+    //! plus modul de filtrare, memorare in clasa doar a pixmap pret, cantitate si a titlului
+    //!
+    //! astfel facem filtrare alfaetica, pret etc, fara apeluri multe la server
+    //!
+    //! iar apelarea de view page facila
+    //!
+    //!
+    //!
+    //! ///////////////////////////////////
 
     QGridLayout *layout = new QGridLayout(ui->scrollContens);
 
