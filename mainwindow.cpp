@@ -9,11 +9,18 @@
 #include <cstdio>
 #include"APPClient.h"
 #include<QMessageBox>
+#include"loadingscreen.h"
+#include"LogInRequest.h"
+#include<iostream>
+#include<string.h>
+#include <cstdlib>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    //LoadingScreen*load=new LoadingScreen();
+    //load->show();
     ui->setupUi(this);
 
     // Setarea textului implicit pentru un QLineEdit numit lineEdit
@@ -54,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     QIcon icon(":/img/img/exit3.png");
 
     ui->exitButton->setIcon(icon);
-     QSize iconSize(40, 40);
+    QSize iconSize(40, 40);
     ui->exitButton->setIconSize(iconSize);
     ui->exitButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
@@ -78,6 +85,9 @@ void MainWindow::on_SignInButton_clicked()
 
 
 }
+
+
+
 void MainWindow::on_exitButton_clicked()
 {
     this->close();
@@ -86,41 +96,34 @@ void MainWindow::on_exitButton_clicked()
 
 void MainWindow::on_LoginButton_clicked()
 {
-    /*
-    std::string email;
-    email = ui->lineEdit->text().toStdString();
+
+     std::string email;
+     email = ui->lineEdit->text().toStdString();
 
     std::string password;
-    password = ui->lineEdit_2->text().toStdString();
-
-    std::string buffer="1";
-    buffer +=email;
-    buffer +="#";
-    buffer +=password;
-
-    APPClient::getInstance()->getTcpClient()->send(buffer.c_str(), buffer.length());
-
-    char bufferRecv[1024];
-    int recv_bytes=0;
-
-    while(recv_bytes==0)
-    {
-        recv_bytes = APPClient::getInstance()->getTcpClient()->recv(bufferRecv, 1024);
-        bufferRecv[recv_bytes] = '\0';
-    }
-    if(strcmp(bufferRecv,"LOGGED IN SUCCESSFULLY")==0)
-        QMessageBox::information(this,"Login","LOGGED IN SUCCESSFULLY");
-    else if(strcmp(bufferRecv,"YOUR EMAIL ADDRESS ISN'T REGISTERED")==0)
-        QMessageBox::warning(this,"Login","YOUR EMAIL ADDRESS ISN'T REGISTERED!");
-    else if(strcmp(bufferRecv,"WRONG PASSWORD")==0)
-        QMessageBox::warning(this,"Login","WRONG PASSWORD!");
-
-*/
+     password = ui->lineEdit_2->text().toStdString();
 
 
-    this->close();
-    DashBoard*dashboard=new DashBoard();
-    dashboard->show();
 
+     // LogInRequest* logInRequest =LogInRequest::getInstance();
+     // logInRequest->getInstance()->GetData(email,password);
+
+     // if(logInRequest->getInstance()->Request()){
+
+     //     this->userID=atoi(logInRequest->getInstance()->GetAnswer());
+
+     //     this->close();
+     //     DashBoard*dashboard=new DashBoard(this,this->userID);
+     //     dashboard->show();
+     // }else{
+
+     //     //tratare cu exceptie
+
+     // }
+
+
+     this->close();
+     DashBoard*dashboard=new DashBoard();
+     dashboard->show();
 }
 

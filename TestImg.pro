@@ -11,31 +11,62 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    DataRequest.cpp \
+    DescriptionRequest.cpp \
+    FactoryUser.cpp \
+    ImageRequest.cpp \
+    LogInRequest.cpp \
+    ProductBuilder.cpp \
+    RegisterRequest.cpp \
+    SignInRequest.cpp \
     TCPClient.cpp \
+    UserClientRequest.cpp \
     adminlogin.cpp \
     clientlogin.cpp \
     companylogin.cpp \
     dashboard.cpp \
+    iRequest.cpp \
+    iuser.cpp \
+    loadingscreen.cpp \
     main.cpp \
     APPClient.cpp\
     mainwindow.cpp \
-    signinwindow.cpp
+    signinwindow.cpp \
+    user.cpp \
+    userClient.cpp \
+    userRequest.cpp
 
 HEADERS += \
+    DataRequest.h \
+    DescriptionRequest.h \
+    FactoryUser.h \
+    ImageRequest.h \
+    LogInRequest.h \
+    ProductBuilder.h \
+    RegisterRequest.h \
+    SignInRequest.h \
     TCPClient.h \
     APPClient.h\
+    UserClientRequest.h \
     adminlogin.h \
     clientlogin.h \
     companylogin.h \
     dashboard.h \
+    iRequest.h \
+    iuser.h \
+    loadingscreen.h \
     mainwindow.h \
-    signinwindow.h
+    signinwindow.h \
+    user.h \
+    userClient.h \
+    userRequest.h
 
 FORMS += \
     adminlogin.ui \
     clientlogin.ui \
     companylogin.ui \
     dashboard.ui \
+    loadingscreen.ui \
     mainwindow.ui \
     signinwindow.ui
 

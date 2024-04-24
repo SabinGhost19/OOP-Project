@@ -19,8 +19,10 @@ signals://------------------------------
 
     void onShowSecondWindow();
     //-----------------------------------
-public:
 
+
+
+public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -32,7 +34,10 @@ private slots:
 
     void on_LoginButton_clicked();
 
+
+
 private:
+    int userID=0;
     Ui::MainWindow *ui;
     SignInWindow*signin=nullptr;
     DashBoard*dashboard=nullptr;

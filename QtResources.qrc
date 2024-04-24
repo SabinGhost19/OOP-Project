@@ -23,5 +23,13 @@
         <file>img/profile_w.png</file>
         <file>img/signout.png</file>
         <file>img/signout_w.png</file>
+        <file>img/iphone15.webp</file>
+        <file>img/slide.png</file>
+        <file>img/search.png</file>
+        <file>img/filter.png</file>
+        <file>img/loading1.png</file>
+        <file>img/loading2.png</file>
+        <file>img/loading3.png</file>
+        <file>img/loading4.png</file>
     </qresource>
 </RCC>
