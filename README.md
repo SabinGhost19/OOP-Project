@@ -6,7 +6,7 @@ ce poate fi testat:
     Request Comments si Request Descriere
     -- acestea vor fi apelate la construcita view product si popularea labelurilor de interfat cu informatiile primite
     
-    Sign In si Log In rrequest, la Log In request este nevoie de primirea la server a id-ului userului;
+ Sign In si Log In rrequest, la Log In request este nevoie de primirea la server a id-ului userului;
     pentru a ajuta la construirea ulterioara a obiectului User din dashboard printr-un request la server
 
 to be developed:
