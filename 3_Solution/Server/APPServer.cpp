@@ -128,8 +128,15 @@ bool APPServer::manageRequest(char* buffer)
     {
     case '1':
         manageLogIn(buffer);
+        break;
     case '2':
         tcpServer->sendImage("sigla.png");
+        break;
+    case '9':
+        tcpServer->closeConnection();
+        break;
+    default:
+        break;
     }
     return true;
 }

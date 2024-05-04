@@ -23,8 +23,10 @@ public:
 	TCPServer(short listen_port);
 	void wait_connection();
 	SOCKET getClientSock() { return client_sock; };
-	int send(const char const* send_buf, const int size) const;
-	int recv(char* recv_buf, const int size) const;
+	bool closeConnection();
+	int send(const char const* send_buf, const int size);
+	int recv(char* recv_buf, const int size);
 	int sendImage(const char* imageName);
+	~TCPServer();
 };
 

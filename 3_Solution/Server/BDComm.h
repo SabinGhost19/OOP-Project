@@ -19,6 +19,7 @@ public:
     SQLWCHAR* ConvertToWideChar(const char* str);
     void CreateConnection();
     void CloseConnection(); 
+    bool verifyAccountLogIn(char* email, char* password);
     const char* GetQuery(SQLWCHAR* query, int& len);
     ~BDComm();
 };

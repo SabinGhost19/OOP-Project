@@ -1,4 +1,5 @@
 #include "APPClient.h"
+#include <QCoreApplication>
 
 APPClient* APPClient::instance = nullptr;
 
@@ -8,7 +9,7 @@ APPClient* APPClient::getInstance()
         return instance;
     instance = new APPClient;
     instance->tcpClient = new TCPClient();
-    instance->tcpClient->connect("25.42.174.199", 12345);
+    instance->tcpClient->connect("127.0.0.1", 12345);
     return instance;
 }
 
@@ -27,15 +28,21 @@ void APPClient::deleteInstance()
 {
     if (instance == nullptr)
         return;
+    instance->getTcpClient()->closeConnection();
+    WSACleanup();
     if (instance->tcpClient != nullptr)
     {
         delete instance->tcpClient;
         instance->tcpClient = nullptr;
     }
-    delete instance;
+}
+
+void APPClient::cleanUpBeforeQuit()
+{
+    instance->deleteInstance();
 }
 
 APPClient::~APPClient()
 {
-    deleteInstance();
+    instance->deleteInstance();
 }
