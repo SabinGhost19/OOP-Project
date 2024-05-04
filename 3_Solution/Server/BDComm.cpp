@@ -74,6 +74,11 @@ void BDComm::CloseConnection()
     SQLFreeHandle(SQL_HANDLE_ENV, sqlEnvHandle);
 }
 
+bool BDComm::verifyAccountLogIn(char* email, char* password)
+{
+    
+}
+
 const char* BDComm::GetQuery(SQLWCHAR* query, int& len)
 {
     if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, query, SQL_NTS)) {

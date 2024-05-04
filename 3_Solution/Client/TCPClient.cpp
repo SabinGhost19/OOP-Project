@@ -71,6 +71,11 @@ QPixmap TCPClient::receiveImage()
         }
         return pixmap;
 }
+void TCPClient::closeConnection()
+{
+    closesocket(this->sock);
+    sock = NULL;
+}
 void TCPClient::connect(const char * ip_dest, short port_dest)
 {
     int iResult;
@@ -99,7 +104,6 @@ void TCPClient::connect(const char * ip_dest, short port_dest)
         sock = INVALID_SOCKET;
     }
 
-
 }
 
 int TCPClient::send(const char * send_buff, const int size) const
@@ -112,4 +116,15 @@ int TCPClient::recv(char* recv_buff, const int size) const
 {
     int recv_bytes = ::recv(sock, recv_buff, size, 0);
     return recv_bytes;
+}
+
+SOCKET TCPClient::getSocket()
+{
+    return this->sock;
+}
+
+TCPClient::~TCPClient()
+{
+    this->closeConnection();
+    WSACleanup();
 }

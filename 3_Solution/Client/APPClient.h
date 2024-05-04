@@ -13,5 +13,7 @@ public:
 	TCPClient* getTcpClient();
 	static void deleteInstance();
 	~APPClient();
+public slots:
+    void cleanUpBeforeQuit();
 };
 

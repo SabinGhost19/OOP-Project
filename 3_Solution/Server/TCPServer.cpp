@@ -1,10 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "TCPServer.h"
 #include "Exception.h"
+#include "ServerLogger.h"
 #include <fstream>
 #include <iostream>
 #include <stdint.h>
-//#include <queue>
+#include <string>
 
 int n = 0;
 
@@ -13,7 +14,6 @@ int TCPServer::sock_init()
     WSADATA wsaData;
     int iResult;
 
-    // Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0) {
         printf("WSAStartup failed with error: %d\n", iResult);
@@ -74,6 +74,11 @@ TCPServer::TCPServer(short listen_port) : port(listen_port)
 void TCPServer::wait_connection()
 {
     client_sock = accept(listen_sock, NULL, NULL);
+    std::string loggAction = "CLIENT ON SOCKET ";
+    loggAction += std::to_string(client_sock);
+    loggAction += " CONNECTED";
+
+    ServerLogger::getInstance("SocketActivity.txt")->loggAction(loggAction.c_str());
     if (client_sock == INVALID_SOCKET) {
         printf("accept failed with error: %d\n", WSAGetLastError());
         closesocket(listen_sock);
@@ -83,13 +88,24 @@ void TCPServer::wait_connection()
     fprintf(stderr, "Connected\n");
 }
 
-int TCPServer::send(const char const* send_buff, const int size) const
+bool TCPServer::closeConnection()
+{
+    closesocket(client_sock);
+    client_sock = NULL;
+    std::string loggAction = "CLIENT ON SOCKET ";
+    loggAction += std::to_string(client_sock);
+    loggAction += " DISCONNECTED";
+    ServerLogger::getInstance("SocketActivity.txt")->loggAction(loggAction.c_str());
+    return true;
+}
+
+int TCPServer::send(const char const* send_buff, const int size)
 {
     int send_bytes = ::send(client_sock, send_buff, size, 0);
 	return send_bytes;
 }
 
-int TCPServer::recv(char* recv_buff, const int size) const
+int TCPServer::recv(char* recv_buff, const int size)
 {
     int recv_bytes = ::recv(client_sock, recv_buff, size, 0);
     return recv_bytes;
@@ -98,11 +114,11 @@ int TCPServer::recv(char* recv_buff, const int size) const
 int TCPServer::sendImage(const char* imageName)
 {
     FILE* file;
-    //if(n%2==0)
-    //    file = fopen("C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\sigla.png", "rb");
-    //else
+    if(n%2==0)
+        file = fopen("C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\sigla.png", "rb");
+    else
         file = fopen("C:\\Users\\George\\Desktop\\download.png", "rb");
- /*   n++;*/
+    n++;
     if (!file) {
         throw "Eroare la deschidere fisier";
     }
@@ -115,8 +131,6 @@ int TCPServer::sendImage(const char* imageName)
     char accBuffer[50];
     int nrOfBytes = recv(accBuffer, 50);
     uint8_t* buffer = (uint8_t*)malloc(40960 * sizeof(uint8_t));
-    //fread(buffer, 1, imgDim, file);
-    //sentBytes = send((const char*)buffer, imgDim);
     int bytesRemained = imgDim;
     int bytesthatHasBeenSent=0;
     for (int i = 1; i <= (imgDim / 40960)+1; i++)
@@ -140,4 +154,9 @@ int TCPServer::sendImage(const char* imageName)
     }
     fclose(file);
     std::cout << bytesthatHasBeenSent;
+}
+
+TCPServer::~TCPServer()
+{
+    WSACleanup();
 }

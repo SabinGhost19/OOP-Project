@@ -19,17 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="AClient.cpp" />
+    <ClCompile Include="Address.cpp" />
+    <ClCompile Include="Administrator.cpp" />
     <ClCompile Include="APPServer.cpp" />
     <ClCompile Include="BDComm.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Company.cpp" />
     <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="IClient.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Reviews.cpp" />
     <ClCompile Include="ServerLogger.cpp" />
     <ClCompile Include="TCPServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="AClient.h" />
+    <ClInclude Include="Address.h" />
+    <ClInclude Include="Administrator.h" />
     <ClInclude Include="APPServer.h" />
     <ClInclude Include="BDComm.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Company.h" />
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="IClient.h" />
+    <ClInclude Include="Product.h" />
+    <ClInclude Include="Reviews.h" />
     <ClInclude Include="ServerLogger.h" />
     <ClInclude Include="TCPServer.h" />
   </ItemGroup>
