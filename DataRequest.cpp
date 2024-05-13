@@ -15,6 +15,7 @@ bool DataRequest::Answer()
 
     recv_bytes =APPClient::getInstance()->getTcpClient()->recv(this->answer, 1024);
     answer[recv_bytes] = '\0';
+    std::cout<<std::endl<<std::endl<<answer<<std::endl<<std::endl;
 
     if(strcmp(this->answer,"CRASHED")==0){
         std::cout<<"Answer CRASHED  ........................";

@@ -9,17 +9,19 @@ class CommentsRequest : public DataRequest
 
     inline static  CommentsRequest *instance=nullptr;
     std::vector<std::pair<std::string, std::string>> comments;
-    int index=0;
+    std::string index;
     virtual bool Answer();
     int point_phase=-1;
+    std::vector<std::string>note;
 
 public:
 
-    std::pair<std::string, std::string> GetComments();
+    std::vector<std::pair<std::string, std::string>> GetComments();
     static CommentsRequest*getInstance();
     CommentsRequest();
+    void SendComment(std::string review,std::string nota);
     int Size();
-    void SetIndex(int);
+    void SetIndex(std::string);
 
 };
 

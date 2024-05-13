@@ -152,6 +152,11 @@ void ClientLogin::on_LoginButton_clicked()
 
     std::string telefon;
     telefon = ui->Telefon->text().toStdString();
+    if (telefon.size() > 7) {
+        // Dacă textul depășește dimensiunea 7, afișează un mesaj de eroare
+        QMessageBox::warning(nullptr, "Eroare", "Dimensiunea numărului de telefon trebuie să fie maxim 7 caractere.");
+        return;
+    }
 
     std::string DataNasterii;
     DataNasterii = ui->DataNasterii->text().toStdString();
@@ -205,6 +210,14 @@ void ClientLogin::on_LoginButton_clicked()
     date.push_back(numar);
     date.push_back(scara);
     date.push_back(numarApp);
+    date.push_back(codPostal);
+    date.push_back(tara);
+    date.push_back(judet);
+    date.push_back(oras);
+    date.push_back(strada);
+    date.push_back(numar);
+    date.push_back(scara);
+    date.push_back(numarApp);
 
 
 
@@ -217,7 +230,7 @@ void ClientLogin::on_LoginButton_clicked()
         MainWindow*main=new MainWindow();
         main->show();
     }else{
-        //tratare cu exceptie
+
     }
 
     // this->close();

@@ -6,42 +6,102 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1043</width>
-    <height>673</height>
+    <width>1149</width>
+    <height>722</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color:#9EFFD1
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>270</y>
+      <y>380</y>
       <width>271</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 2px solid #0078d7;  /* Adaugă un contur de 2px solid cu culoarea albastră */
+    border-radius: 5px;          /* Rotunjeste marginile */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;             /* Setează dimensiunea fontului */
+    color: #333;                 /* Setează culoarea textului la un gri mai închis */
+    background-color: #cce6ff;   /* Setează culoarea de fundal la albastru deschis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;          /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;      /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>370</y>
+      <y>480</y>
       <width>271</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 2px solid #0078d7;  /* Adaugă un contur de 2px solid cu culoarea albastră */
+    border-radius: 5px;          /* Rotunjeste marginile */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;             /* Setează dimensiunea fontului */
+    color: #333;                 /* Setează culoarea textului la un gri mai închis */
+    background-color: #cce6ff;   /* Setează culoarea de fundal la albastru deschis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;          /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;      /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="LoginButton">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>460</y>
+      <x>260</x>
+      <y>570</y>
       <width>141</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background-color: #007bff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+QPushButton:hover {
+  background-color: #0056b3;
+}
+</string>
     </property>
     <property name="text">
      <string>LogIn</string>
@@ -50,11 +110,38 @@
    <widget class="QPushButton" name="SignInButton">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>390</y>
-      <width>141</width>
-      <height>61</height>
+      <x>850</x>
+      <y>410</y>
+      <width>161</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>sans-serif</family>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #6188FF;
+    padding: 12px 24px;
+    border: 2px solid #063263; /* Adăugați contur cu grosimea și culoarea specificată */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+/* Stil pentru butoanele QPushButton */
+
+
+</string>
     </property>
     <property name="text">
      <string>SignIn</string>
@@ -63,79 +150,154 @@
    <widget class="QLabel" name="label_design">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>-10</y>
-      <width>501</width>
-      <height>661</height>
+      <x>690</x>
+      <y>-20</y>
+      <width>471</width>
+      <height>711</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_yahoo">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>180</y>
-      <width>71</width>
-      <height>51</height>
-     </rect>
+    <property name="pixmap">
+     <pixmap>img/design.png</pixmap>
     </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_google">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>180</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_facebook">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>180</y>
-      <width>71</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_logo">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>131</width>
-      <height>121</height>
+      <x>220</x>
+      <y>0</y>
+      <width>231</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>img/Logo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>20</y>
       <width>101</width>
       <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: #9EFFD1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+QPushButton:hover {
+  background-color: #7ECCA7;
+}
+</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_logo_2">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>250</y>
+      <width>191</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    background-color: #063263; /* Culorile de fundal */
+    border: 2px solid #C8F7FF; /* Chenarul cu grosimea specificată și culoarea specificată */
+    color: #FFFFFF; /* Textul pe alb */
+    padding: 10px; /* Spațierea între conținut și chenar */
+    border-radius: 5px; /* Rotunjirea colțurilor */
+    opacity: 0.8; /* Opacitatea pentru a face chenarul ușor transparent */
+}</string>
+    </property>
+    <property name="text">
+     <string>New Here ?</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Title">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>220</y>
+      <width>541</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>36</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    font-family: &quot;Segoe UI&quot;,  /* Tahoma, Geneva, Verdana, sans-serif;Schimbați fontul la alegere */
+    font-size: 48px; /* Ajustați dimensiunea fontului */
+    color: #333; /* Alegeți o culoare potrivită */
+    text-align: center; /* Alinierea textului la centru */
+    text-transform: uppercase; /* Convertiți textul în majuscule */
+    letter-spacing: 2px; /* Spațiere între litere */
+    margin-top: 50px; /* Spațierea superioară */
+    margin-bottom: 20px; /* Spațierea inferioară */
+}</string>
+    </property>
+    <property name="text">
+     <string> Login to Your Account</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_subtitle">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>300</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Login using any account</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <zorder>label_design</zorder>
@@ -143,18 +305,18 @@
    <zorder>lineEdit_2</zorder>
    <zorder>LoginButton</zorder>
    <zorder>SignInButton</zorder>
-   <zorder>label_yahoo</zorder>
-   <zorder>label_google</zorder>
-   <zorder>label_facebook</zorder>
    <zorder>label_logo</zorder>
    <zorder>exitButton</zorder>
+   <zorder>label_logo_2</zorder>
+   <zorder>label_Title</zorder>
+   <zorder>label_subtitle</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1043</width>
+     <width>1149</width>
      <height>21</height>
     </rect>
    </property>

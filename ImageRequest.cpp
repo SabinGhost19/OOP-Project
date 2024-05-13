@@ -13,19 +13,64 @@ ImageRequest*ImageRequest::getInstance(){
 
 char*ImageRequest::GetAnswer(){return this->answer;}
 
-void  ImageRequest::Construct_Images(){
+void ImageRequest:: Construct_MoreImages(int id){
 
-    this->message="2";
+    this->message="6";
     this->Request();
 
-    this->actual_pixmap=ReceiveImages();
+    QString str = QString::number(id);
+    this->message=str.toStdString();
+    this->Request();
+
+    this->Answer();
+    int size=atoi(this->answer);
+    APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+
+    for(int i=0;i<size;i++){
+        QPixmap pixmap=ReceiveImages();
+        this->new_images.push_back(pixmap);
+    }
+
+}
+std::vector<QPixmap> ImageRequest::GetNewImages()const{
+    return this->new_images;
+}
+int ImageRequest::FindSize(){
+
+    //this->message="3";
+    //if(this->Request()){
+        DataRequest::Answer();
+        APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+        return atoi(this->answer);
+    //}
+}
+void  ImageRequest::Construct_Images(){
 
     DataRequest::Answer();
+    APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
     this->actual_title=this->answer;
+    DataRequest::Answer();
+    APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+    this->price=this->answer;
+    DataRequest::Answer();
+    APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+    QString qstr = QString::fromUtf8(this->answer);
+    this->ID=qstr.toStdString();
+    std::cout<<this->ID<<std::endl;
+    //this->actual_pixmap=ReceiveImages();
 
 }
 std::string  ImageRequest::getTtile(){
-    this->actual_title;
+    return this->actual_title;
+}
+std::string ImageRequest::GetPrice(){
+    return this->price;
+}
+std::string ImageRequest::GetID(){
+    return this->ID;
+}
+std::string ImageRequest::getCantitate(){
+    return this->cantitate;
 }
 QPixmap  ImageRequest::getImage(){
     return this->actual_pixmap;
@@ -64,10 +109,17 @@ QPixmap ImageRequest::ReceiveImages(){
         nrOfBytes = APPClient::getInstance()->getTcpClient()->send("ACCEPT",strlen("ACCEPT"));
     }
 
+    FILE*f=fopen("C:\\Users\\sabin\\Desktop\\imagine.png","wb");
+    fwrite(bufferToRecv,1,dimToRecvInt,f);
+
     QImage image;
     QByteArray byteArray = QByteArray::fromRawData(reinterpret_cast<const char*>(bufferToRecv), dimToRecvInt);
     image.loadFromData(byteArray,"PNG");
-    QPixmap pixmap = QPixmap::fromImage(image);
+
+
+
+   QPixmap pixmap=QPixmap::fromImage(image);
+
     if (image.isNull()) {
         qDebug() << "Imaginea este goală!";
     }

@@ -64,11 +64,20 @@ QPixmap TCPClient::receiveImage()
 
         QImage image;
         QByteArray byteArray = QByteArray::fromRawData(reinterpret_cast<const char*>(bufferToRecv), dimToRecvInt);
-        image.loadFromData(byteArray,"PNG");
-        QPixmap pixmap = QPixmap::fromImage(image);
+        //image.loadFromData(byteArray,"PNG");
+
+
+
+        //QPixmap pixmap = QPixmap::fromImage(image);
+        QPixmap pixmap;
+        pixmap.loadFromData(byteArray);
+
         if (image.isNull()) {
             qDebug() << "Imaginea este goală!";
         }
+
+        free (bufferToRecv);
+        free (bufferInter);
         return pixmap;
 }
 void TCPClient::connect(const char * ip_dest, short port_dest)

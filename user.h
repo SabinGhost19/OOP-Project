@@ -6,6 +6,7 @@
 class User : public iUser
 {
 public:
+
     User();
 };
 

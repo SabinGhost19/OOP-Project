@@ -21,32 +21,53 @@ enum class ProductCategory {
 
 class Product {
 private:
-    QPixmap image_label;
-    std::string title;
-    float price;
-    std::string description;
-    std::vector<std::pair<std::string, std::string>> comments;
+
     int comment_index=-1;
+    int state=0;
+    int image_index=0;
+
+    std::vector<std::pair<std::string, std::string>> comments;
+    std::vector<QPixmap> image_label_LIST;
     ProductCategory categorie_produs;
+    std::string description;
+    std::string cantitate;//
+    std::string price;
+    std::string product_ID;//
+    std::string title;
+    std::string producer_name;
+
 public:
 
     Product();
 
-
+    void setQuantity(std::string quant);
     void setImage( QPixmap image_label);
     void setTitle(const std::string &title);
-    void setPrice(float price);
+    void setPrice(std::string price);
     void setDescription(const std::string &description);
     void setComments(std::vector<std::pair<std::string, std::string>>vec_param);
     void setCategory(std::string category_param);
+    void setID(std::string id_param);
+    void setProducerName(std::string);
 
 
-    QPixmap getImage() const;
+    std::vector<QPixmap> getImage() const;
+    std::string GetProductID()const;
     std::string getTitle() const;
-    float getPrice() const;
+    std::string getPrice() const;
+    //std::string GetId()const;
     std::string getDescription() const;
-    std::pair<std::string, std::string> getComments();
+    std::vector<std::pair<std::string, std::string>> getComments();
     ProductCategory getCategory()const;
+    std::string GetQuant()const ;
+    int GetState();
+    std::string GetProducerName();
+
+    void ModifyState();
+    void ResetState();
+    void AddMoreImages(std::vector<QPixmap>more);
+
+    QPixmap GetNextImage();
 
 };
 

@@ -22,7 +22,7 @@ private slots:
 
     void on_ClientButton_clicked();
 
-    void on_AdminButton_clicked();
+    //void on_AdminButton_clicked();
 
 private:
     Ui::SignInWindow *ui;

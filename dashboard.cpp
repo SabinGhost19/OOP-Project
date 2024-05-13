@@ -15,7 +15,9 @@
 #include"FactoryUser.h"
 #include"CommentsRequest.h"
 #include"Product.h"
-
+#include<string>
+#include"userClient.h"
+int product=0;
 
 
 DashBoard::DashBoard(QWidget *parent,int userID)
@@ -25,13 +27,14 @@ DashBoard::DashBoard(QWidget *parent,int userID)
     ui->setupUi(this);
 
     //apel la server pentru construirea userului cu informatiile sale //client doar care cumpara
+    this->setUser(userID);
     this->SetStylePolicyforIcons();
-    this->populareListaProduse();
+    //this->populareListaProduse();
     this->adaugareFramesToDashBrd();
-    this->ConstructCart();
-    this->ConstructForumPage();
+    //this->ConstructCart();
+    //this->ConstructForumPage();
 
-    //this->setUser(user_ID);
+
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -104,57 +107,60 @@ void  DashBoard::populareListaProduse() {
 }
 
 
+
 void DashBoard::ConstructCart(){
 
 
     ui->Nume->setText("NumeSabin");
     ui->Prenume->setText("STEFANNN");
     ui->BaniDisponibili->setText("Nu prea am");
-    //float price =this->user->getCommandPrice();
-    //char buffer[20]; // Dimensiunea trebuie să fie suficient de mare pentru a include întregul număr și caracterul terminator '\0'
-    //sprintf(buffer, "%.2f", price);
-    ui->TotalCosCumparaturi->setText("853");
+    float price =this->user->getCommandPrice();
+    QString text = QString::number(price);
+    ui->TotalCosCumparaturi->setText(text);
 
 
 
     QGridLayout *gridLayout = new QGridLayout(ui->scrollContents_4);
 
     //for(int i=0;i<CommentsRequest::getInstance()->Size();i++)
-    for (int i = 0; i < 5; ++i) {
-
-        QFrame *frameProdus = new QFrame(ui->scrollArea_3);
-        frameProdus->setFixedSize(570, 91); // Setează dimensiunea fixă a frame-ului produsului
-        frameProdus->setStyleSheet("background-color: lightBlue;"); // Setează culoarea de fundal a frame-ului produsului
 
 
-        QLabel *labelNumeProdus = new QLabel("Nume", this);
-        labelNumeProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
+    //if(this->user->GetProductCount()!=0){
+
+   //  for (auto product : this->user->GetListaProduse()) {
+
+   //      QFrame *frameProdus = new QFrame(ui->scrollArea_3);
+   //      frameProdus->setFixedSize(570, 91); // Setează dimensiunea fixă a frame-ului produsului
+   //      frameProdus->setStyleSheet("background-color: lightBlue;"); // Setează culoarea de fundal a frame-ului produsului
 
 
-        QLabel *labelPretProdus = new QLabel("Pret", this);
-        labelPretProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
+   //      QLabel *labelNumeProdus = new QLabel(product.first.c_str(), this);
+   //      labelNumeProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
 
 
-        QVBoxLayout *frameLayout = new QVBoxLayout;
-        frameLayout->addWidget(labelNumeProdus);
-        frameLayout->addWidget(labelPretProdus);
-        frameProdus->setLayout(frameLayout);
+   //      QLabel *labelPretProdus = new QLabel(product.second.c_str(), this);
+   //      labelPretProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
 
 
-        gridLayout->addWidget(frameProdus, i, 0);
-    }
+   //      QVBoxLayout *frameLayout = new QVBoxLayout;
+   //      frameLayout->addWidget(labelNumeProdus);
+   //      frameLayout->addWidget(labelPretProdus);
+   //      frameProdus->setLayout(frameLayout);
 
 
+   //      gridLayout->addWidget(frameProdus, i, 0);
+   //      i++;
+   // // }
 
 }
 
 
 void DashBoard::setUser(int ID){
 
-    FactoryUser*new_factory=new FactoryUser();
-    this->user=new_factory->ConstructClientUser(ID);
+    //FactoryUser*new_factory=new FactoryUser();
+    //this->user=new_factory->ConstructClientUser(ID);
+    this->user=new UserClient();
 }
-
 void DashBoard::ButtonClickedProdus(){
 
     QPushButton *clickedButton = qobject_cast<QPushButton*>(sender()); // Află butonul apăsat
@@ -172,18 +178,108 @@ void DashBoard::ButtonClickedProdus(){
     }
 }
 
+void DashBoard::AddProdusToCart(QString title,QString price){
+
+    //this->user->addProductToCart(title.toStdString(),price.toStdString());
+
+    QFrame *frameProdus = new QFrame(ui->scrollArea_3);
+    frameProdus->setFixedSize(570, 91); // Setează dimensiunea fixă a frame-ului produsului
+    frameProdus->setStyleSheet("background-color: lightBlue;"); // Setează culoarea de fundal a frame-ului produsului
 
 
+    QLabel *labelNumeProdus = new QLabel(title, this);
+    labelNumeProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
 
 
+    QLabel *labelPretProdus = new QLabel(price, this);
+    labelPretProdus->setFixedSize(171, 61); // Setează dimensiunea fixă a labelului
 
 
+    QVBoxLayout *frameLayout = new QVBoxLayout;
+    frameLayout->addWidget(labelNumeProdus);
+    frameLayout->addWidget(labelPretProdus);
+    frameProdus->setLayout(frameLayout);
+
+
+    ui->scrollContents_4->layout()->addWidget(frameProdus);
+
+    QObject::disconnect(ui->Buy, &QPushButton::clicked, nullptr, nullptr);
+
+}
+
+void DashBoard::AddPriceToCart(float price){
+
+    this->user->AddToCart(price);
+    ui->TotalCosCumparaturi->setText(QString::number(this->user->getCommandPrice()));
+}
+bool DashBoard::AddReview(){
+
+    bool ok;
+    QString text = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok);
+    if (ok && !text.isEmpty()) {
+        // Textul a fost introdus și butonul "OK" a fost apăsat
+        // Acum poți face ceva cu textul introdus
+        qDebug() << "Text introdus:" << text;
+        //APPClient::getInstance()->user_client->SetComment(text.toStdString());
+
+    } else {
+        // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
+        qDebug() << "Utilizatorul a anulat introducerea textului.";
+        return false;
+    }
+
+
+    bool ok2;
+    QString text2 = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok);
+    if (ok2 && !text.isEmpty()) {
+        // Textul a fost introdus și butonul "OK" a fost apăsat
+        // Acum poți face ceva cu textul introdus
+        qDebug() << "Text introdus:" << text2;
+        //APPClient::getInstance()->user_client->SetNota(text2.toStdString());
+
+    } else {
+        // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
+        qDebug() << "Utilizatorul a anulat introducerea textului.";
+        return false;
+    }
+
+
+    return true;
+
+}
 void DashBoard::ConstructProductView(int index){
 
-    DescriptionRequest::getInstance()->SetIndex(index);
-    std::string description=DescriptionRequest::getInstance()->GetDescription();
 
-    CommentsRequest::getInstance()->SetIndex(index);
+    std::cout<<std::endl<<std::endl<<"Indexul Produsului selectat: "<<index<<std::endl<<std::endl;
+
+    std::vector<std::pair<std::string, std::string>>comments;
+    std::string description;
+
+    if(this->allProducts[index]->GetState()==0){
+
+    //setare descriere
+    std::cout<<this->allProducts[index]->GetProductID()<<std::endl;
+    DescriptionRequest::getInstance()->SetIndex(this->allProducts[index]->GetProductID());
+    description=DescriptionRequest::getInstance()->GetDescription();
+    this->allProducts[index]->setDescription(description);
+
+    //setare comments
+    CommentsRequest::getInstance()->SetIndex(this->allProducts[index]->GetProductID());
+    comments=CommentsRequest::getInstance()->GetComments();
+    this->allProducts[index]->setComments(comments);
+
+
+    //ImageRequest::getInstance()->Construct_MoreImages(index);
+    //std::vector<QPixmap>new_img=ImageRequest::getInstance()->GetNewImages();
+    //this->allProducts[index]->AddMoreImages(new_img);
+
+
+    //this->allProducts[index]->ModifyState();
+
+    }else{
+        description=this->allProducts[index]->getDescription();
+        //comments=this->allProducts[index]->getComments();
+   }
 
     ui->scrollArea_3->setWidgetResizable(true);
     ui->scrollArea_3->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -195,11 +291,10 @@ void DashBoard::ConstructProductView(int index){
 
     QGridLayout *gridLayout = new QGridLayout(ui->scrollContent_3);
 
-    //for(int i=0;i<CommentsRequest::getInstance()->Size();i++)
-    for (int i = 0; i < 5; ++i) {
+    std::cout<<std::endl<<std::endl<<"Comment Size : "<<static_cast<int>(comments.size())<<std::endl<<std::endl;
 
-        std::pair<std::string, std::string>pair=CommentsRequest::getInstance()->GetComments();
-
+    for (int i = 0; i < static_cast<int>(comments.size()); ++i) {
+   // for (int i = 0; i < 10; ++i) {
         QFrame *frame = new QFrame;
         frame->setFixedSize(911, 171);
         frame->setStyleSheet("background-color: white;");
@@ -208,13 +303,16 @@ void DashBoard::ConstructProductView(int index){
         QLabel *titleLabel = new QLabel("Titlu");
         titleLabel->setFixedSize(161, 31);
         titleLabel->setStyleSheet("background-color: blue;");
-        titleLabel->setText(pair.first.c_str());
+        titleLabel->setText(comments[i].first.c_str());
+        std::cout<<std::endl<<std::endl<<"First: "<<comments[i].first.c_str()<<std::endl<<std::endl;
 
 
         QLabel *descriptionLabel = new QLabel("Descriere");
         descriptionLabel->setFixedSize(881, 111);
         descriptionLabel->setStyleSheet("background-color: blue;");
-        descriptionLabel->setText(pair.second.c_str());
+        descriptionLabel->setText(comments[i].second.c_str());
+
+        std::cout<<std::endl<<std::endl<<"Second: "<<comments[i].second.c_str()<<std::endl<<std::endl;
 
         QVBoxLayout *frameLayout = new QVBoxLayout;
         frameLayout->addWidget(titleLabel);
@@ -226,45 +324,73 @@ void DashBoard::ConstructProductView(int index){
     }
 
 
-    ui->Buy->setFixedSize(201, 61);
-    ui->Buy->setMinimumSize(201, 61);
-    ui->Buy->move(440,20);
+    // ui->Buy->setFixedSize(201, 61);
+    // ui->Buy->setMinimumSize(201, 61);
+    // ui->Buy->move(440,20);
 
-    ui->lineEdit_2->setFixedSize(20, 41);
-    ui->lineEdit_2->setMinimumSize(201, 41);
-    ui->lineEdit_2->move(440,15);
+    // ui->lineEdit_2->setFixedSize(20, 41);
+    // ui->lineEdit_2->setMinimumSize(201, 41);
+    // ui->lineEdit_2->move(440,15);
 
-    ui->imageLabel->setFixedSize(401, 391);
-    ui->imageLabel->setMinimumSize(401, 391);
-    ui->imageLabel->move(10, 20);
-    ui->imageLabel->setStyleSheet("background-color: red;");
+    // ui->imageLabel->setFixedSize(401, 391);
+    // ui->imageLabel->setMinimumSize(401, 391);
+    // ui->imageLabel->move(10, 20);
 
-
-
-    ui->titleLabel->setFixedSize(461, 71);
-    ui->titleLabel->setMinimumSize(461, 71);
-    ui->titleLabel->move(440, 30);
-    ui->titleLabel->setStyleSheet("background-color: white;");
+    // ui->imageLabel->setStyleSheet("background-color: red;");
 
 
 
-    ui->descriptionLabel->setFixedSize(461, 291);
-    ui->descriptionLabel->setMinimumSize(461, 291);
-    ui->descriptionLabel->move(440, 120);
-    ui->descriptionLabel->setStyleSheet("background-color: yellow;");
+    // ui->titleLabel->setFixedSize(461, 71);
+    // ui->titleLabel->setMinimumSize(461, 71);
+    // ui->titleLabel->move(440, 30);
+    // ui->titleLabel->setStyleSheet("background-color: white;");
 
 
 
-    ui->miniTitleLabel->setFixedSize(161, 41);
-    ui->miniTitleLabel->setMinimumSize(161, 41);
-    ui->miniTitleLabel->move(10, 410);
-    ui->miniTitleLabel->setStyleSheet("background-color: blue;");
+    // ui->descriptionLabel->setFixedSize(461, 291);
+    // ui->descriptionLabel->setMinimumSize(461, 291);
+    // ui->descriptionLabel->move(440, 120);
+    // ui->descriptionLabel->setStyleSheet("background-color: yellow;");
+
+
+    // ui->Price->setFixedSize(161, 41);
+    // ui->Price->setMinimumSize(161, 41);
+    // ui->Price->move(10, 410);
+    // ui->Price->setStyleSheet("background-color: blue;");
+    // ui->Price->setText("10");
+
+
 
     ui->scrollArea_3->setWidget(ui->scrollContent_3);
 
-    ui->imageLabel->setText(description.c_str());
-    ui->titleLabel->setText("----------------------");
+    ui->imageLabel->setPixmap(this->allProducts[index]->GetNextImage());
+    //ui->Price->setText(this->allProducts[index]->getPrice().c_str());
+
+
+    ui->titleLabel->setText(this->allProducts[index]->getTitle().c_str());
     ui->stackedWidget->setCurrentIndex(3);
+    ui->descriptionLabel->setText(this->allProducts[index]->getDescription().c_str());
+
+    QObject::connect(ui->Buy, &QPushButton::clicked, [&]() {
+        QString text = ui->Price->text();
+        float price = text.toFloat();
+        AddPriceToCart(price);
+        AddProdusToCart(ui->titleLabel->text(),ui->Price->text());
+    });
+
+
+    QObject::connect(ui->AddReview, &QPushButton::clicked, [&]() {
+        if(this->AddReview()){
+            //CommentsRequest::getInstance()->SendComment(APPClient::getInstance()->user_client->GetComment()
+            //,APPClient::getInstance()->user_client->GetNota());
+        }
+    });
+
+
+    QObject::connect(ui->NextImage, &QPushButton::clicked, [&]() {
+        ui->imageLabel->setPixmap(this->allProducts[index]->GetNextImage());
+    });
+
 
 }
 
@@ -294,12 +420,16 @@ void DashBoard::adaugareFramesToDashBrd(){
     //while(strcmp(ImageRequest::getInstance()->GetAnswer(),"end")!=0){}
     //!!!!!!!!!!!!?!??!???????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //!
-    int vec_size= static_cast<int>(this->ShowProducts.size());
-    std::cout<<vec_size<<std::endl;
+    //int vec_size= static_cast<int>(this->ShowProducts.size());
+    //std::cout<<vec_size<<std::endl;
 
-    for (int i = 0; i <vec_size; ++i){
+    int size =ImageRequest::getInstance()->FindSize();
+
+    for (int i = 0; i <size; ++i){
     //for (int i = 0; i <10; ++i){
         //trebuie luata lungimea sau un semnal de oprire in imagerequest!!!!!!!!
+
+        ImageRequest::getInstance()->Construct_Images();
 
         QFrame *frame = ProductBuilder::getInstance()->ProduceFrame();
         frame->setObjectName("myFrame");
@@ -312,10 +442,104 @@ void DashBoard::adaugareFramesToDashBrd(){
 
         QLabel *pixmapLabel = ProductBuilder::getInstance()->ProducePixmapLable(frame);
 
-        // ImageRequest::getInstance()->Construct_Images();
-        // new_product->setImage( ImageRequest::getInstance()->getImage());
-        //pixmapLabel->setPixmap( ImageRequest::getInstance()->getImage());
-        //pixmapLabel->setScaledContents(true);
+
+
+
+        Product*new_product=new Product();
+        new_product->setPrice(ImageRequest::getInstance()->GetPrice());
+        std::cout<<ImageRequest::getInstance()->GetID()<<std::endl;//bun
+        new_product->setID(ImageRequest::getInstance()->GetID());
+
+
+
+
+
+
+
+
+
+
+        // APPClient::getInstance()->getTcpClient()->send("2",2);
+        // QPixmap pixmap=APPClient::getInstance()->getTcpClient()->receiveImage();
+        // QFrame *frame = new QFrame;
+        // frame->setObjectName("myFrame");
+        // frame->setFixedSize(241, 241);
+        // frame->setMaximumSize(241, 241);
+        // frame->setStyleSheet("QFrame#myFrame { background-color: yellow; }"); // Setează culoarea de fundal
+        // QGridLayout *gridLayout = new QGridLayout(frame);
+        // frame->setLayout(gridLayout);
+        // // Creează label-ul cu pixmap
+
+        // QLabel *pixmapLabel = new QLabel(frame);
+        // pixmapLabel->setPixmap(pixmap);
+        // pixmapLabel->setScaledContents(true);        // Setează imaginea
+        // pixmapLabel->setFixedSize(221, 191);
+        // pixmapLabel->setMaximumSize(221, 191);
+        // pixmapLabel->setGeometry(9, 9, 221, 191);
+        // gridLayout->addWidget(pixmapLabel, 0, 0);
+
+        // // Creează cele două label-uri suplimentare
+        // QLabel *label1 = new QLabel("Label 1", frame);
+        // label1->setFixedSize(121, 31);
+        // label1->setMinimumSize(121, 31);
+        // label1->setStyleSheet("QLabel { color: green; }"); // Setează culoarea textului verde
+        // //gridLayout->addWidget(label1, 0, 0); // Adaugă label1 pe prima poziție a grid-ului
+        // label1->setGeometry(9, 201, 121, 31); // Setează coordonatele
+        // gridLayout->addWidget(label1, 1, 0);
+
+        // QPushButton *button = new QPushButton("Button", frame);
+        // button->setFixedSize(101, 31);
+        // button->setMinimumSize(101, 31);
+        // button->setStyleSheet("QPushButton { color: blue; border: none; background-color: transparent; }" // Setează culoarea textului albastru și elimină stilurile butonului
+        //                       "QPushButton:hover { background-color: #e0e0e0; }" // Adaugă un efect de hover pentru buton
+        //                       "QPushButton:pressed { background-color: #c0c0c0; }"); // Adaugă un efect pentru când butonul este apăsat
+        // gridLayout->addWidget(button, 1, 1);
+
+
+        // layout->addWidget(frame, i / 3, i % 3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        QPixmap pixmap=APPClient::getInstance()->getTcpClient()->receiveImage();
+        new_product->setImage(pixmap);
+        pixmapLabel->setPixmap(pixmap);
+        pixmapLabel->setScaledContents(true);
         pixmapLabel->setFixedSize(221, 191);
         pixmapLabel->setMaximumSize(221, 191);
         pixmapLabel->setGeometry(9, 9, 221, 191);
@@ -326,8 +550,9 @@ void DashBoard::adaugareFramesToDashBrd(){
         QLabel *label1 = ProductBuilder::getInstance()->ProduceTitle(frame);
         label1->setFixedSize(121, 31);
         label1->setMinimumSize(121, 31);
-        label1->setText(this->ShowProducts[i]->getTitle().c_str());//--!!!!!!!!!!!!!!!
-        //label1->setText("Titlu");
+        label1->setText(ImageRequest::getInstance()->getTtile().c_str());//--!!!!!!!!!!!!!!!
+        label1->setText(ImageRequest::getInstance()->getTtile().c_str());
+        new_product->setTitle(ImageRequest::getInstance()->getTtile());
         label1->setStyleSheet("QLabel { color: green; }");
         gridLayout->addWidget(label1, 0, 0);
         label1->setGeometry(9, 201, 121, 31);
@@ -338,6 +563,7 @@ void DashBoard::adaugareFramesToDashBrd(){
         this->buttonList.append(button);
         connect(button, &QPushButton::clicked, this, &DashBoard::ButtonClickedProdus);
         layout->addWidget(frame, i / 3, i % 3);
+        this->allProducts.push_back(new_product);
 
     }
 
@@ -591,5 +817,11 @@ void DashBoard::on_offerts_clicked()
 void DashBoard::on_offerts_short_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+void DashBoard::on_Buy_clicked()
+{
+
 }
 

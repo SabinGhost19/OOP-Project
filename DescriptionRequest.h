@@ -8,10 +8,10 @@ class DescriptionRequest:public DataRequest
 {
     inline static  DescriptionRequest *instance=nullptr;
     std::string description;
-    int index=0;
+    std::string index;
 public:
     DescriptionRequest();
-    void SetIndex(int);
+    void SetIndex(std::string);
     static DescriptionRequest*getInstance();
     std::string GetDescription();
 

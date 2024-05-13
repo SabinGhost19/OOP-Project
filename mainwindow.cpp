@@ -10,10 +10,15 @@
 #include"APPClient.h"
 #include<QMessageBox>
 //#include"loadingscreen.h"
-//#include"LogInRequest.h"
+#include"LogInRequest.h"
 #include<iostream>
 #include<string.h>
 #include <cstdlib>
+#include"FactoryUser.h"
+#include"companywindow.h"
+#include"dashboard.h"
+#include <QInputDialog>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,20 +43,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPixmap pixmapDesign(":/img/img/design.png");
     QPixmap imageY(":/img/img/yahoo.png");
-    QPixmap logo(":/img/img/logo_nou.jpeg");
+    QPixmap logo(":/img/img/Logo.png");
 
 
     ui->label_design->setPixmap(pixmapDesign);
     ui->label_design->setScaledContents(true);
 
-    ui->label_yahoo->setPixmap(imageY);
-    ui->label_yahoo->setScaledContents(true);
+   // ui->label_yahoo->setPixmap(imageY);
+    //ui->label_yahoo->setScaledContents(true);
 
-    ui->label_google->setPixmap(pixmapG);
-    ui->label_google->setScaledContents(true);
+    //ui->label_google->setPixmap(pixmapG);
+    //ui->label_google->setScaledContents(true);
 
-    ui->label_facebook->setPixmap(pixmapF);
-    ui->label_facebook->setScaledContents(true);
+    //ui->label_facebook->setPixmap(pixmapF);
+    //ui->label_facebook->setScaledContents(true);
 
     ui->label_logo->setPixmap(logo);
     ui->label_logo->setScaledContents(true);
@@ -104,27 +109,86 @@ void MainWindow::on_LoginButton_clicked()
     password = ui->lineEdit_2->text().toStdString();
 
 
+    std::string mssg="1";
+    LogInRequest::getInstance()->SetMssg(mssg);
+    //LogInRequest::getInstance()->Answer();
+    LogInRequest::getInstance()->Request();
 
-    // LogInRequest* logInRequest =LogInRequest::getInstance();
-    // logInRequest->getInstance()->GetData(email,password);
+    LogInRequest::getInstance()->SetMssg(email);
+    LogInRequest::getInstance()->Request();
+    LogInRequest::getInstance()->SetMssg(password);
+    LogInRequest::getInstance()->Request();
 
-    // if(logInRequest->getInstance()->Request()){
+    LogInRequest::getInstance()->Answer();//true false
+    QString answer=QString::fromUtf8(LogInRequest::getInstance()->GetAnswer());
+    std::cout<<std::endl<<std::endl<<std::endl<<"answerrrr: "<<answer.toStdString()<<std::endl<<std::endl<<std::endl;
+    APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
 
-    //     this->userID=atoi(logInRequest->getInstance()->GetAnswer());
+    if(answer.toStdString()=="TRUE"){
+        LogInRequest::getInstance()->Answer();
+        this->userID=atoi(LogInRequest::getInstance()->GetAnswer());
+        APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
 
-    //     this->close();
-    //     DashBoard*dashboard=new DashBoard(this,this->userID);
-    //     dashboard->show();
-    // }else{
+        FactoryUser*new_fac=new FactoryUser();
+        new_fac->setRol(userID);
 
-    //     //tratare cu exceptie
 
+        if(this->userID==0){
+
+            new_fac->ConstructUser();
+            UserClient*new_user=new_fac->ConstrucClienttUser(0);
+
+            APPClient::getInstance()->setClientUser(new_user);
+
+            this->close();
+            DashBoard*dashboard=new DashBoard();
+            dashboard->show();
+
+        }else if(this->userID==1){
+
+            new_fac->ConstructUser();
+            UserCompany*new_user=new_fac->ConstrucCompanytUser(0);
+
+            APPClient::getInstance()->setCompanyUser(new_user);
+
+            this->close();
+            CompanyWindow*window=new CompanyWindow();
+            window->show();
+        }
+        delete new_fac;
+
+    }
+    else{
+
+
+        this->close();
+        SignInWindow*signIn=new SignInWindow();
+        signIn->show();
+        std::cout<<"GO to the register page , the account dont exist\n";
+        //tratare cu exceptie
+
+    }
+
+
+
+    // bool ok;
+    // QString text = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok);
+    // if (ok && !text.isEmpty()) {
+    //     // Textul a fost introdus și butonul "OK" a fost apăsat
+    //     // Acum poți face ceva cu textul introdus
+    //     qDebug() << "Text introdus:" << text;
+    // } else {
+    //     // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
+    //     qDebug() << "Utilizatorul a anulat introducerea textului.";
     // }
 
 
-    this->close();
-    DashBoard*dashboard=new DashBoard();
-    dashboard->show();
-    std::cout<<"LogInPressed!!!!!!!";
+
+    // // // std::cout<<"LogInPressed!!!!!!!";
+    // this->close();
+    // // CompanyWindow*new_comWin=new CompanyWindow();
+    // // new_comWin->show();
+    // DashBoard*new_d=new DashBoard();
+    // new_d->show();
 }
 

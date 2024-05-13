@@ -14,17 +14,21 @@ CONFIG += c++17
 SOURCES += \
     APPClient.cpp \
     CommentsRequest.cpp \
+    CompanyAddRequest.cpp \
     DataRequest.cpp \
     DescriptionRequest.cpp \
     FactoryUser.cpp \
     ImageRequest.cpp \
+    LogInRequest.cpp \
     Product.cpp \
     ProductBuilder.cpp \
     RegisterRequest.cpp \
     SignInRequest.cpp \
     TCPClient.cpp \
-    UserClientRequest.cpp \
+    addProduct.cpp \
     clientlogin.cpp \
+    companylogin.cpp \
+    companywindow.cpp \
     dashboard.cpp \
     iRequest.cpp \
     iuser.cpp \
@@ -33,22 +37,27 @@ SOURCES += \
     signinwindow.cpp \
     user.cpp \
     userClient.cpp \
+    userCompany.cpp \
     userRequest.cpp
 
 HEADERS += \
     APPClient.h \
     CommentsRequest.h \
+    CompanyAddRequest.h \
     DataRequest.h \
     DescriptionRequest.h \
     FactoryUser.h \
     ImageRequest.h \
+    LogInRequest.h \
     Product.h \
     ProductBuilder.h \
     RegisterRequest.h \
     SignInRequest.h \
     TCPClient.h \
-    UserClientRequest.h \
+    addProduct.h \
     clientlogin.h \
+    companylogin.h \
+    companywindow.h \
     dashboard.h \
     iRequest.h \
     iuser.h \
@@ -56,10 +65,14 @@ HEADERS += \
     signinwindow.h \
     user.h \
     userClient.h \
+    userCompany.h \
     userRequest.h
 
 FORMS += \
+    addproduct.ui \
     clientlogin.ui \
+    companylogin.ui \
+    companywindow.ui \
     dashboard.ui \
     mainwindow.ui \
     signinwindow.ui

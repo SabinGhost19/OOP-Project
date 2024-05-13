@@ -12,6 +12,14 @@ APPClient* APPClient::getInstance()
     return instance;
 }
 
+void APPClient::setClientUser(UserClient*new_user){
+    this->user_client=new_user;
+}
+void APPClient::setCompanyUser(UserCompany*new_user){
+
+    this->user_company=new_user;
+}
+
 TCPClient* APPClient::getTcpClient()
 {
     return instance->tcpClient;

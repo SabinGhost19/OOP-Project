@@ -3,7 +3,7 @@
 DescriptionRequest::DescriptionRequest() {
     this->description="";
     this->message="";
-    this->index=0;
+
 }
 
 DescriptionRequest*DescriptionRequest::getInstance(){
@@ -13,15 +13,33 @@ DescriptionRequest*DescriptionRequest::getInstance(){
     instance = new DescriptionRequest();
     return instance;
 }
-void DescriptionRequest::SetIndex(int index_p){
+void DescriptionRequest::SetIndex(std::string index_p){
     this->index=index_p;
 }
 
 std::string DescriptionRequest::GetDescription(){
-    // std::string indexValue = std::to_string(index);
-    // this->message="3#";
-    // this->message+=indexValue;
-    // this->Request();
-    // return this->answer;
-    if(index%2==0){return "raspuns 1";}else{return "raspunsssssssss 2";}
+     QString str;
+
+      this->message="5";
+
+      this->Request();
+      std::cout<<std::endl<<this->index<<std::endl<<std::endl;
+
+      this->message=this->index;
+      this->Request();
+
+      this->Answer();
+      str = QString::fromUtf8(this->answer);
+      std::string nume=str.toStdString();
+      APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+
+
+      this->Answer();
+      str = QString::fromUtf8(this->answer);
+      std::string descriere=str.toStdString();
+      APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+      std::cout<<descriere<<std::endl;
+
+
+      return descriere;
 }

@@ -1,13 +1,15 @@
 #ifndef USERCLIENT_H
 #define USERCLIENT_H
-#include"user.h"
-#include<iostream>
-#include<string.h>
+
+
+#include "user.h"
+
 
 class UserClient : public User
 {
 private:
-
+    std::string id;
+    std::string rol;
 
     std::string email;
     std::string parola;
@@ -21,9 +23,25 @@ private:
     std::string strada;
     std::string scara;
     std::string numar;
-    std::string numarApartament;
-    std::string codPostal;
-    float current_command=0;
+    std::string numarApartament ;
+    std::string codPostal ;
+
+    std::string tara_F;
+    std::string oras_F;
+    std::string judet_F;
+    std::string strada_F;
+    std::string scara_F;
+    std::string numar_F;
+    std::string numarApartament_F;
+    std::string codPostal_F;
+
+    float current_command=0.0 ;
+    int product_count = 0 ;
+
+    std::string nota;
+    std::string comment;
+
+    std::vector<std::pair<std::string,std::string>>lista_produse;
 public:
 
     std::string getEmail();
@@ -40,7 +58,17 @@ public:
     std::string getNumar();
     std::string getNumarApartament();
     std::string getCodPostal();
+    std::string getTara_F(); // Funcții cu nume modificat
+    std::string getOras_F();
+    std::string getJudet_F();
+    std::string getStrada_F();
+    std::string getScara_F();
+    std::string getNumar_F();
+    std::string getNumarApartament_F();
+    std::string getCodPostal_F();
+    std::string GetRole();
     float getCommandPrice();
+    std::vector<std::pair<std::string,std::string>> GetListaProduse();
 
     void setEmail(const std::string &email);
     void setParola(const std::string &parola) ;
@@ -56,7 +84,26 @@ public:
     void setNumar(const std::string &numar);
     void setNumarApartament(const std::string &numarApartament) ;
     void setCodPostal(const std::string &codPostal);
+
+
+    void setTara_F(const std::string &tara) ;
+    void setOras_F(const std::string &oras) ;
+    void setJudet_F(const std::string &judet);
+    void setStrada_F(const std::string &strada) ;
+    void setScara_F(const std::string &scara) ;
+    void setNumar_F(const std::string &numar);
+    void setNumarApartament_F(const std::string &numarApartament) ;
+    void setCodPostal_F(const std::string &codPostal);
+
+
     void AddToCart(float price);
+    void addProductToCart(std::string,std::string);
+    int GetProductCount();
+
+    void SetComment(std::string str);
+    void SetNota(std::string str);
+    std::string GetComment();
+    std::string GetNota();
 
     UserClient();
 };

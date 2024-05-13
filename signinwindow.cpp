@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 //#include"companylogin.h"
 //#include"adminlogin.h"
+#include"companylogin.h"
 #include"clientlogin.h"
 
 SignInWindow::SignInWindow(QWidget *parent)
@@ -24,7 +25,7 @@ SignInWindow::SignInWindow(QWidget *parent)
     QIcon shop(":/img/img/shop.png");
 
     ui->CompanyButton->setIcon(box);
-    ui->AdminButton->setIcon(admin);
+    //ui->AdminButton->setIcon(admin);
     ui->ClientButton->setIcon(shop);
 
     QSize iconSize(50, 50);
@@ -35,8 +36,8 @@ SignInWindow::SignInWindow(QWidget *parent)
     ui->ClientButton->setIconSize(iconSize);
     ui->ClientButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
-    ui->AdminButton->setIconSize(iconSize);
-    ui->AdminButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    //ui->AdminButton->setIconSize(iconSize);
+    //ui->AdminButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
 
 }
@@ -59,8 +60,8 @@ void SignInWindow::on_backButton_clicked()
 void SignInWindow::on_CompanyButton_clicked()
 {
     this->close();
-    //CompanyLogin*company=new CompanyLogin();
-    //company->show();
+     CompanyLogin*company=new CompanyLogin();
+     company->show();
 }
 
 
@@ -72,11 +73,11 @@ void SignInWindow::on_ClientButton_clicked()
 }
 
 
-void SignInWindow::on_AdminButton_clicked()
-{
-    this->close();
-    //AdminLogin*admin=new AdminLogin();
-    //admin->show();
-}
+// void SignInWindow::on_AdminButton_clicked()
+// {
+//     this->close();
+//     //AdminLogin*admin=new AdminLogin();
+//     //admin->show();
+// }
 
 

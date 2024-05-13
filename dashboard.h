@@ -6,6 +6,7 @@
 #include<QPushButton>
 #include"userClient.h"
 #include"Product.h"
+#include<QString>
 
 namespace Ui {
 class DashBoard;
@@ -26,7 +27,7 @@ private slots:
 
      void on_signout_short_clicked();
 
-
+     bool AddReview();
 
      void adaugareFramesToDashBrd();
 
@@ -61,6 +62,12 @@ private slots:
      void ConstructForumPage();
 
      void ViewForumSection();
+
+     void on_Buy_clicked();
+
+     void AddPriceToCart(float);
+
+     void AddProdusToCart(QString,QString);
 
  public slots:
     void ButtonClickedProdus();
