@@ -132,9 +132,15 @@ void AddProduct::on_Submit_clicked()
         new_req->sendImage(path);
     }
 
+
+
+}
+
+
+void AddProduct::on_Back_clicked()
+{
     this->close();
     CompanyWindow*new_compW=new CompanyWindow();
     new_compW->show();
-
 }
 

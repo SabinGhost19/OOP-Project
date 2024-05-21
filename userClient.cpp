@@ -4,6 +4,17 @@ UserClient::UserClient() {}
 
 std::string UserClient::GetRole(){this->rol;}
 
+
+std::vector<std::pair<std::string,std::string>>UserClient::getCart(){
+    return this->cart;
+}
+void UserClient::setToCart(std::string str1,std::string str2){
+     std::pair<std::string, std::string> myPair(str1, str2);
+    this->cart.push_back(myPair);
+}
+
+
+
 std::string UserClient::getEmail() {
     return email;
 }
@@ -107,7 +118,9 @@ void UserClient::AddToCart(float price){
     this->current_command+=price;
 }
 
-
+Card*UserClient::GetCard(){
+    return this->card;
+}
 void UserClient::SetComment(std::string str){
     this->comment=str;
 }
@@ -146,7 +159,12 @@ void UserClient::setScara(const std::string &scara) { this->scara = scara; }
 void UserClient::setNumar(const std::string &numar) { this->numar = numar; }
 void UserClient::setNumarApartament(const std::string &numarApartament) { this->numarApartament = numarApartament; }
 void UserClient::setCodPostal(const std::string &codPostal) { this->codPostal = codPostal; }
-
+void UserClient::setCard(Card*c){this->card=new Card();
+    this->card->Data=c->Data;
+    this->card->Number=c->Number;
+    this->card->Nume_Detinator=c->Nume_Detinator;
+    this->card->cvc=c->cvc;
+}
 void UserClient::setTara_F(const std::string &tara) { this->tara_F = tara; }
 void UserClient::setOras_F(const std::string &oras) { this->oras_F = oras; }
 void UserClient::setJudet_F(const std::string &judet) { this->judet_F = judet; }

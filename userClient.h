@@ -4,10 +4,19 @@
 
 #include "user.h"
 
+typedef struct Card{
+    std::string Number;
+    std::string Nume_Detinator;
+    std::string Data;
+    std::string cvc;
+}Card;
+
 
 class UserClient : public User
 {
 private:
+
+    Card*card=nullptr;
     std::string id;
     std::string rol;
 
@@ -42,8 +51,11 @@ private:
     std::string comment;
 
     std::vector<std::pair<std::string,std::string>>lista_produse;
-public:
 
+    std::vector<std::pair<std::string,std::string>>cart;
+public:
+    std::vector<std::pair<std::string,std::string>>getCart();
+    void setToCart(std::string,std::string);
     std::string getEmail();
     std::string getParola();
     std::string getNume();
@@ -68,6 +80,7 @@ public:
     std::string getCodPostal_F();
     std::string GetRole();
     float getCommandPrice();
+    Card*GetCard();
     std::vector<std::pair<std::string,std::string>> GetListaProduse();
 
     void setEmail(const std::string &email);
@@ -84,6 +97,7 @@ public:
     void setNumar(const std::string &numar);
     void setNumarApartament(const std::string &numarApartament) ;
     void setCodPostal(const std::string &codPostal);
+    void setCard(Card*card);
 
 
     void setTara_F(const std::string &tara) ;

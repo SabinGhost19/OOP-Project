@@ -87,7 +87,7 @@ void Product::setCategory(std::string category_param){
     this->categorie_produs=GetProductCategory(category_param);
 }
 
-std::vector<QPixmap> Product::getImage() const {
+QList<QPixmap> Product::getImage() const {
     return this->image_label_LIST;
 }
 
@@ -145,10 +145,10 @@ QPixmap Product::GetNextImage(){
     this->image_index++;
     return pix;
 }
-void Product::AddMoreImages(std::vector<QPixmap>more){
+void Product::AddMoreImages(QList<QPixmap>more){
 
     for(auto pix:more){
-        this->image_label_LIST.push_back(pix);
+        this->image_label_LIST.append(pix);
     }
 }
 

@@ -54,7 +54,7 @@ UserCompany*FactoryUser::ConstrucCompanytUser(int ID){
 
     std::string id,rol,email, parola,
         nume, codPostal, tara,judet,oras, strada,
-        numar,scara,NrApartament;
+        numar,scara,NrApartament,total_profit;
 
     id=vec[0];
     rol=vec[1];
@@ -70,7 +70,7 @@ UserCompany*FactoryUser::ConstrucCompanytUser(int ID){
     numar=vec[10];
     scara=vec[11];
     NrApartament=vec[12];
-
+    total_profit=vec[13];
 
     this->new_request->Clear();
 
@@ -98,6 +98,7 @@ UserCompany*FactoryUser::ConstrucCompanytUser(int ID){
     new_user->setCodPostal(codPostal);
     new_user->setScara(scara);
     new_user->setNrApp(NrApartament);
+    new_user->setProfit(total_profit);
 
 
     return new_user;
@@ -230,7 +231,7 @@ void FactoryUser::ConstructUser(){
 
     if(this->rol==1){
     this->new_request=new UserRequest("1");
-    this->new_request->setCredentialSize(13);
+    this->new_request->setCredentialSize(14);
     this->new_request->Request();
     //this->ConstrucCompanytUser(1);
 

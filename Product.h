@@ -27,7 +27,7 @@ private:
     int image_index=0;
 
     std::vector<std::pair<std::string, std::string>> comments;
-    std::vector<QPixmap> image_label_LIST;
+    QList<QPixmap> image_label_LIST;
     ProductCategory categorie_produs;
     std::string description;
     std::string cantitate;//
@@ -51,7 +51,7 @@ public:
     void setProducerName(std::string);
 
 
-    std::vector<QPixmap> getImage() const;
+    QList<QPixmap> getImage() const;
     std::string GetProductID()const;
     std::string getTitle() const;
     std::string getPrice() const;
@@ -65,7 +65,7 @@ public:
 
     void ModifyState();
     void ResetState();
-    void AddMoreImages(std::vector<QPixmap>more);
+    void AddMoreImages(QList<QPixmap>more);
 
     QPixmap GetNextImage();
 

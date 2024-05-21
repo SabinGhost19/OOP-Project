@@ -18,10 +18,11 @@ private:
     std::string numar ;
     std::string scara;
     std::string nrApp;
+    std::string total_profit;
 
 public:
     UserCompany();
-
+    void setProfit(const std::string &value);
     void setId(const std::string &value);
     void setRol(const std::string &value);
     void setEmail(const std::string &value);
@@ -37,6 +38,7 @@ public:
     void setNrApp(const std::string &value);
 
     // Getteri
+    std::string getPorfit()const;
     std::string getId() const;
     std::string getRol() const;
     std::string getEmail() const;

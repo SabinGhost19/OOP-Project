@@ -4,12 +4,13 @@
 #include<iostream>
 #include<string.h>
 #include<QPixmap>
+#include<QList>
 
 class ImageRequest: public DataRequest
 {
 private:
     QPixmap actual_pixmap;
-    std::vector<QPixmap>new_images;
+    QList<QPixmap>new_images;
     std::string actual_title="---";
     std::string price;
     std::string cantitate;
@@ -21,9 +22,9 @@ private:
 public:
     QPixmap ReceiveImages();
     static ImageRequest*getInstance();
-    std::vector<QPixmap> GetNewImages()const;
+    QList<QPixmap> GetNewImages()const;
     void Construct_Images();
-    void Construct_MoreImages(int id);
+    void Construct_MoreImages(std::string);
     char*GetAnswer();
     std::string  getTtile();
     QPixmap  getImage();

@@ -69,13 +69,39 @@ private slots:
 
      void AddProdusToCart(QString,QString);
 
+     void on_Comanda_clicked();
+
+     void on_NewPasswSUBMIT_clicked();
+
+     void on_SchimbaParola_clicked();
+
+     void on_cont_clicked();
+
+     void on_AdaugaCard_clicked();
+
+     void on_Add_Card_Button_clicked();
+
+     void on_AdaugaBani_clicked();
+
+     void UpdateImage(int index);
+
+     void ViewForumPage(int index);
+
+     void populareForumVector();
+
+
+     void UpdateForum();
+
+
+     void on_ForumButton_clicked();
+
  public slots:
     void ButtonClickedProdus();
 
 private:
     QList<Product*>allProducts;
     QList<Product*>ShowProducts;
-
+    std::vector<std::pair<std::string,std::string>>forum_list;
 
     Ui::DashBoard *ui;
     UserClient*user=nullptr;

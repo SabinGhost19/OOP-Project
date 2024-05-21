@@ -25,6 +25,8 @@ private slots:
 
     void on_Submit_clicked();
 
+    void on_Back_clicked();
+
 private:
     std::string category;
     Ui::AddProduct *ui;

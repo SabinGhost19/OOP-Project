@@ -18,7 +18,7 @@
 #include"companywindow.h"
 #include"dashboard.h"
 #include <QInputDialog>
-
+#include"CardRequest.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -138,6 +138,11 @@ void MainWindow::on_LoginButton_clicked()
             new_fac->ConstructUser();
             UserClient*new_user=new_fac->ConstrucClienttUser(0);
 
+            CardRequest card_req;
+            card_req.RecvCard();
+            Card*new_card=card_req.GetCardData();
+            new_user->setCard(new_card);
+
             APPClient::getInstance()->setClientUser(new_user);
 
             this->close();
@@ -185,10 +190,10 @@ void MainWindow::on_LoginButton_clicked()
 
 
     // // // std::cout<<"LogInPressed!!!!!!!";
-    // this->close();
+    //this->close();
     // // CompanyWindow*new_comWin=new CompanyWindow();
     // // new_comWin->show();
-    // DashBoard*new_d=new DashBoard();
-    // new_d->show();
+    //DashBoard*new_d=new DashBoard();
+    //new_d->show();
 }
 

@@ -13,13 +13,17 @@ CONFIG += c++17
 
 SOURCES += \
     APPClient.cpp \
+    CardRequest.cpp \
+    Cartrequest.cpp \
     CommentsRequest.cpp \
     CompanyAddRequest.cpp \
     DataRequest.cpp \
     DescriptionRequest.cpp \
     FactoryUser.cpp \
+    Forumrequest.cpp \
     ImageRequest.cpp \
     LogInRequest.cpp \
+    MoneyAddRequest.cpp \
     Product.cpp \
     ProductBuilder.cpp \
     RegisterRequest.cpp \
@@ -27,6 +31,7 @@ SOURCES += \
     TCPClient.cpp \
     addProduct.cpp \
     clientlogin.cpp \
+    companyDetailsrequest.cpp \
     companylogin.cpp \
     companywindow.cpp \
     dashboard.cpp \
@@ -34,6 +39,7 @@ SOURCES += \
     iuser.cpp \
     main.cpp \
     mainwindow.cpp \
+    passwordchangerequest.cpp \
     signinwindow.cpp \
     user.cpp \
     userClient.cpp \
@@ -42,13 +48,17 @@ SOURCES += \
 
 HEADERS += \
     APPClient.h \
+    CardRequest.h \
+    Cartrequest.h \
     CommentsRequest.h \
     CompanyAddRequest.h \
     DataRequest.h \
     DescriptionRequest.h \
     FactoryUser.h \
+    Forumrequest.h \
     ImageRequest.h \
     LogInRequest.h \
+    MoneyAddRequest.h \
     Product.h \
     ProductBuilder.h \
     RegisterRequest.h \
@@ -56,12 +66,14 @@ HEADERS += \
     TCPClient.h \
     addProduct.h \
     clientlogin.h \
+    companyDetailsrequest.h \
     companylogin.h \
     companywindow.h \
     dashboard.h \
     iRequest.h \
     iuser.h \
     mainwindow.h \
+    passwordchangerequest.h \
     signinwindow.h \
     user.h \
     userClient.h \

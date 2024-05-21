@@ -32,5 +32,11 @@
         <file>img/signout_w.png</file>
         <file>img/slide.png</file>
         <file>img/yahoo.png</file>
+        <file>img/applePay.png</file>
+        <file>img/card.png</file>
+        <file>img/paypal.png</file>
+        <file>img/visa.png</file>
+        <file>img/delivery.png</file>
+        <file>img/paper.png</file>
     </qresource>
 </RCC>

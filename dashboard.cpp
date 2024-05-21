@@ -17,7 +17,14 @@
 #include"Product.h"
 #include<string>
 #include"userClient.h"
-int product=0;
+#include"Cartrequest.h"
+#include"passwordchangerequest.h"
+#include"CardRequest.h"
+#include"MoneyAddRequest.h"
+#include"Forumrequest.h"
+
+int product_index=0;
+int category=0;
 
 
 DashBoard::DashBoard(QWidget *parent,int userID)
@@ -25,62 +32,257 @@ DashBoard::DashBoard(QWidget *parent,int userID)
     , ui(new Ui::DashBoard)
 {
     ui->setupUi(this);
-
+     ui->ForumButton->hide();
     //apel la server pentru construirea userului cu informatiile sale //client doar care cumpara
     this->setUser(userID);
+    this->populareForumVector();
     this->SetStylePolicyforIcons();
     //this->populareListaProduse();
     this->adaugareFramesToDashBrd();
-    //this->ConstructCart();
-    //this->ConstructForumPage();
+    this->ConstructCart();
+    this->ConstructForumPage();
 
 
     ui->stackedWidget->setCurrentIndex(0);
 }
+void DashBoard::populareForumVector(){
+    std::pair<std::string, std::string> pairO("Periferice", "Mouse, Tastaturi, Imprimante, Multifunctionale, Copiatoare, Consumabile, Camere web, Scannere, Memorii externe, Rack-uri, Hard disk-uri externe, Multimedia, UPS etc.");
+    this->forum_list.push_back(pairO);
 
+
+    std::pair<std::string, std::string> pair3("Comunicatii", "Smartphone-uri, telefoane mobile, accesorii, software mobile");
+    this->forum_list.push_back(pair3);
+
+    std::pair<std::string, std::string> pair4("Componente", "Placi de baza, Procesoare, Placi video, Hard disk-uri, SSD-uri, Memorii, Placi de sunet, Surse, Carcase etc.");
+    this->forum_list.push_back(pair4);
+
+    std::pair<std::string, std::string> pair5("Gaming", "Lumea jocurilor video. Keep calm and game on.");
+    this->forum_list.push_back(pair5);
+
+    std::pair<std::string, std::string> pair6("Software", "You name it.");
+    this->forum_list.push_back(pair6);
+
+    std::pair<std::string, std::string> pair7("Retelistiaca", "Routere wireless, Routere wired, Switch-uri, Placi de retea, Placi de retea wireless, Access point-uri, Adaptoare wireless, Antene, Firewall, Print servere, Accesorii retea, Cabinete metalice etc.");
+    this->forum_list.push_back(pair7);
+
+    std::pair<std::string, std::string> pair8("Electrocasnice", "Mici sau mari, pentru tine sau pentru toata familia.");
+    this->forum_list.push_back(pair8);
+
+    std::pair<std::string, std::string> pair9("Intrebari/Opinii/Sugestii", "Daca iti doresti un produs sau un nou serviciu de la PC Garage, daca ai o nelamurire, sau doar doresti sa ne transmiti ceva, parerile tale sunt asteptate.");
+    this->forum_list.push_back(pair9);
+
+    std::pair<std::string, std::string> pair10("Fun", "Orice ne poate descreti fruntile");
+    this->forum_list.push_back(pair10);
+
+
+
+}
 void DashBoard::ViewForumSection(){
 
     std::cout<<"VIEW FORUM SECTION"<<std::endl;
 }
 
+void DashBoard::UpdateForum(){
+
+    QLayout *layout = ui->scrollContents_5->layout();
+    if (layout) {
+        // Șterge toate widget-urile și layout-urile din grid
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr) {
+            // Verifică dacă item-ul este un widget sau un alt layout
+            if (child->widget()) {
+                // Dacă este un widget, șterge-l
+                delete child->widget();
+            } else if (child->layout()) {
+                // Dacă este un alt layout, șterge recursiv widget-urile și layout-urile sale
+                QLayout *childLayout = child->layout();
+                QLayoutItem *childItem;
+                while ((childItem = childLayout->takeAt(0)) != nullptr) {
+                    if (childItem->widget()) {
+                        delete childItem->widget();
+                    }
+                    delete childItem;
+                }
+                // Șterge layout-ul copil
+                delete childLayout;
+            }
+            // Șterge item-ul din layout-ul principal
+            delete child;
+        }
+        // Setează layout-ul la nullptr pentru a elibera memoria
+        delete layout;
+        ui->scrollContents_5->setLayout(nullptr);
+    }
+}
+void DashBoard::ViewForumPage(int index){
+
+    this->UpdateForum();
+
+    ForumRequest forumR;
+    forumR.setIndex(index+1);
+    category=index+1;
+    std::vector<std::pair<std::string, std::string>>page=forumR.RequestForumPage();
+
+    QGridLayout *horizontalLayout = new QGridLayout(ui->scrollContents_5);
+    ui->scrollArea_4->setWidgetResizable(true);
+    ui->scrollArea_4->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    ui->scrollArea_4->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    ui->scrollArea_4->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    for(int i=0;i<static_cast<int>(page.size());i++){
+
+        QFrame *frame = new QFrame;
+
+
+        QVBoxLayout *layout = new QVBoxLayout;
+
+
+        frame->setFixedHeight(271);
+        frame->setFixedWidth(800); // Setează lățimea fixă pentru frame
+        frame->setStyleSheet("background-color: white; border-radius: 10px;");
+
+
+        QLabel *label1 = new QLabel;
+        label1->setMaximumSize(251, 71);
+        label1->setGeometry(10, 10, 251, 71);
+        label1->setStyleSheet("background-color: #FFCDD2; border-radius: 10px;"); // Culoare roșie deschisă
+        label1->setText(page[i].first.c_str());
+
+        QLabel *label2 = new QLabel;
+        label2->setMaximumHeight(371);
+        label2->setGeometry(10, 87, 251, 200);
+        label2->setStyleSheet("background-color: #BBDEFB; border-radius: 10px;");
+        label2->setText("category");
+
+
+
+        QTextEdit *textEdit3 = new QTextEdit;
+        textEdit3->setMaximumHeight(371);
+        textEdit3->setGeometry(10, 164, 251, 371);
+        textEdit3->setStyleSheet("background-color: #C8E6C9; border-radius: 10px;"); // Culoare verde deschis
+        textEdit3->setText(page[i].second.c_str());
+        textEdit3->setReadOnly(true); // Setează textul ca fiind doar pentru citire, similar cu un QLabel
+
+
+        layout->addWidget(label1);
+        layout->addWidget(label2);
+        layout->addWidget(textEdit3);
+
+
+        frame->setLayout(layout);
+
+        horizontalLayout->addWidget(frame);
+
+
+    }
+
+}
+
+
 void DashBoard::ConstructForumPage(){
 
+    this->UpdateForum();
 
-    QVBoxLayout *horizontalLayout = new QVBoxLayout(ui->scrollContents_5);
+    QGridLayout *horizontalLayout = new QGridLayout(ui->scrollContents_5);
     ui->scrollArea_4->setWidgetResizable(true);
     ui->scrollArea_4->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     ui->scrollArea_4->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     ui->scrollArea_4->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //for(int i=0;i<CommentsRequest::getInstance()->Size();i++)
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 9; ++i) {
+
+        // QFrame *frame = new QFrame;
+        // frame->setFixedSize(831, 101);
+        // frame->setStyleSheet("background-color: #B0E0E6;");// Dimensiuni fixe pentru frame
+        // QVBoxLayout *frameLayout = new QVBoxLayout(frame);
+
+        // // Crearea label-ului în interiorul frame-ului
+        // QLabel *label = new QLabel(frame);
+        // label->setText("Descrierea sectiunii");
+        // label->setGeometry(10, 10, 681, 81); // Poziție și dimensiuni pentru label în interiorul frame-ului
+        // label->setFixedSize(681, 81); // Dimensiuni fixe pentru label
+        // label->setText("Label " + QString::number(i + 1));
+        // label->setStyleSheet("background-color: #98FB98; color: #FFFFF0;");
+        // frameLayout->addWidget(label);        // Textul label-ului
+
+        // // Crearea butonului în interiorul frame-ului
+        // QPushButton *button = new QPushButton(frame);
+        // button->setGeometry(710, 20, 91, 61); // Poziție și dimensiuni pentru buton în interiorul frame-ului
+        // button->setFixedSize(91, 61); // Dimensiuni fixe pentru buton
+        // connect(button, &QPushButton::clicked, this, &DashBoard::ViewForumSection);//!!!!!!!!!!
+        // button->setText("Button " + QString::number(i + 1)); // Textul butonului
+        // button->setStyleSheet("background-color: #32CD32; color: #FFFFFF;");
+        // frameLayout->addWidget(button);
+
 
         QFrame *frame = new QFrame;
-        frame->setFixedSize(831, 101);
-        frame->setStyleSheet("background-color: #B0E0E6;");// Dimensiuni fixe pentru frame
-        QVBoxLayout *frameLayout = new QVBoxLayout(frame);
 
-        // Crearea label-ului în interiorul frame-ului
-        QLabel *label = new QLabel(frame);
-        label->setText("Descrierea sectiunii");
-        label->setGeometry(10, 10, 681, 81); // Poziție și dimensiuni pentru label în interiorul frame-ului
-        label->setFixedSize(681, 81); // Dimensiuni fixe pentru label
-        label->setText("Label " + QString::number(i + 1));
-        label->setStyleSheet("background-color: #98FB98; color: #FFFFF0;");
-        frameLayout->addWidget(label);        // Textul label-ului
+        // Creează layout-ul vertical
+        QVBoxLayout *layout = new QVBoxLayout;
 
-        // Crearea butonului în interiorul frame-ului
-        QPushButton *button = new QPushButton(frame);
-        button->setGeometry(710, 20, 91, 61); // Poziție și dimensiuni pentru buton în interiorul frame-ului
-        button->setFixedSize(91, 61); // Dimensiuni fixe pentru buton
-        connect(button, &QPushButton::clicked, this, &DashBoard::ViewForumSection);//!!!!!!!!!!
-        button->setText("Button " + QString::number(i + 1)); // Textul butonului
-        button->setStyleSheet("background-color: #32CD32; color: #FFFFFF;");
-        frameLayout->addWidget(button);
+        // Setează dimensiunea frame-ului
+        frame->setFixedHeight(300);
+        frame->setFixedWidth(831); // Setează lățimea fixă pentru frame
+        frame->setStyleSheet("background-color: white; border-radius: 10px;");
 
-        frame->setLayout(frameLayout);
+        // Creează primul QLabel cu dimensiuni maxime și culoare de fundal diferită
+         QFrame *f = new QFrame;
+        f->setFixedHeight(72);
+        f->setFixedWidth(280); // Setează lățimea fixă pentru frame
+        f->setStyleSheet("background-color: white; border-radius: 10px;");
+         QHBoxLayout *l = new QHBoxLayout;
 
-        horizontalLayout->addWidget(label);
+
+        QLabel *label1 = new QLabel;
+        label1->setMaximumSize(251, 71);
+        label1->setGeometry(10, 10, 251, 71);
+        label1->setStyleSheet("background-color: #FFCDD2; border-radius: 10px;"); // Culoare roșie deschisă
+        label1->setText(this->forum_list[i].first.c_str());
+
+        // Creează al doilea QLabel cu dimensiunea maximă și culoare de fundal diferită
+
+        QTextEdit *textEdit2 = new QTextEdit;
+        textEdit2->setMaximumHeight(371);
+        textEdit2->setGeometry(10, 87, 251, 371);
+        textEdit2->setStyleSheet("background-color: #BBDEFB; border-radius: 10px;"); // Culoare albastru deschis
+        textEdit2->setText(this->forum_list[i].second.c_str());
+        textEdit2->setReadOnly(true); // Setează textul ca fiind doar pentru citire
+
+
+        QPushButton *button = new QPushButton("View");
+        // button->setFixedSize(50, 71);
+        // button->setGeometry(30,10,50,71);
+
+        button->setStyleSheet("background-color: #E0E0E0; border-radius: 10px;");
+
+
+        QObject::connect(button, &QPushButton::clicked, this, std::bind(&DashBoard::ViewForumPage, this, i));
+
+
+
+
+        l->addWidget(label1);
+        l->addWidget(button);
+        f->setLayout(l);        // Culoare gri deschisă
+        // Creează al treilea QLabel cu dimensiunea maximă și culoare de fundal diferită
+        // QLabel *label3 = new QLabel;
+        // label3->setMaximumHeight(371);
+        // label3->setGeometry(10, 164, 251, 371);
+        // label3->setStyleSheet("background-color: #C8E6C9; border-radius: 10px;"); // Culoare verde deschis
+
+        // Adaugă label-urile la layout-ul vertical
+        layout->addWidget(f);
+        layout->addWidget(textEdit2);
+
+        //layout->addWidget(label3);
+
+        // Setează layout-ul vertical pentru frame
+        frame->setLayout(layout);
+
+        horizontalLayout->addWidget(frame);
+
+
     }
 }
 void  DashBoard::populareListaProduse() {
@@ -111,8 +313,8 @@ void  DashBoard::populareListaProduse() {
 void DashBoard::ConstructCart(){
 
 
-    ui->Nume->setText("NumeSabin");
-    ui->Prenume->setText("STEFANNN");
+    ui->Nume->setText(APPClient::getInstance()->user_client->getNume().c_str());
+    ui->Prenume->setText(APPClient::getInstance()->user_client->getPrenume().c_str());
     ui->BaniDisponibili->setText("Nu prea am");
     float price =this->user->getCommandPrice();
     QString text = QString::number(price);
@@ -182,7 +384,7 @@ void DashBoard::AddProdusToCart(QString title,QString price){
 
     //this->user->addProductToCart(title.toStdString(),price.toStdString());
 
-    QFrame *frameProdus = new QFrame(ui->scrollArea_3);
+    QFrame *frameProdus = new QFrame(ui->scrollArea_2);
     frameProdus->setFixedSize(570, 91); // Setează dimensiunea fixă a frame-ului produsului
     frameProdus->setStyleSheet("background-color: lightBlue;"); // Setează culoarea de fundal a frame-ului produsului
 
@@ -209,8 +411,11 @@ void DashBoard::AddProdusToCart(QString title,QString price){
 
 void DashBoard::AddPriceToCart(float price){
 
-    this->user->AddToCart(price);
-    ui->TotalCosCumparaturi->setText(QString::number(this->user->getCommandPrice()));
+
+    APPClient::getInstance()->user_client->AddToCart(price);
+    ui->TotalCosCumparaturi->setText(QString::number(this->user->getCommandPrice()).toStdString().c_str());
+    std::cout<<"-------------------"<<QString::number(this->user->getCommandPrice()).toStdString();
+
 }
 bool DashBoard::AddReview(){
 
@@ -220,7 +425,37 @@ bool DashBoard::AddReview(){
         // Textul a fost introdus și butonul "OK" a fost apăsat
         // Acum poți face ceva cu textul introdus
         qDebug() << "Text introdus:" << text;
-        //APPClient::getInstance()->user_client->SetComment(text.toStdString());
+        APPClient::getInstance()->user_client->SetComment(text.toStdString());
+
+
+        // QFrame *frame = new QFrame;
+        // frame->setFixedSize(911, 171);
+        // frame->setStyleSheet("background-color: white;");
+
+
+        // QLabel *titleLabel = new QLabel("Titlu");
+        // titleLabel->setFixedSize(161, 31);
+        // titleLabel->setStyleSheet("background-color: blue;");
+        // titleLabel->setText("Your Comment");
+
+
+
+        // QLabel *descriptionLabel = new QLabel("Descriere");
+        // descriptionLabel->setFixedSize(881, 111);
+        // descriptionLabel->setStyleSheet("background-color: blue;");
+        // descriptionLabel->setText(text.toStdString().c_str());
+
+
+
+        // QVBoxLayout *frameLayout = new QVBoxLayout;
+        // frameLayout->addWidget(titleLabel);
+        // frameLayout->addWidget(descriptionLabel);
+        // frame->setLayout(frameLayout);
+
+
+        // gridLayout->addWidget(frame, i, 0);
+
+
 
     } else {
         // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
@@ -230,12 +465,12 @@ bool DashBoard::AddReview(){
 
 
     bool ok2;
-    QString text2 = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok);
+    QString text2 = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok2);
     if (ok2 && !text.isEmpty()) {
         // Textul a fost introdus și butonul "OK" a fost apăsat
         // Acum poți face ceva cu textul introdus
         qDebug() << "Text introdus:" << text2;
-        //APPClient::getInstance()->user_client->SetNota(text2.toStdString());
+        APPClient::getInstance()->user_client->SetNota(text2.toStdString());
 
     } else {
         // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
@@ -247,39 +482,60 @@ bool DashBoard::AddReview(){
     return true;
 
 }
+
+void DashBoard::on_Comanda_clicked()
+{
+    CartRequest*cart=new CartRequest();
+    cart->SetData(APPClient::getInstance()->user_client->getCart());
+    if(! cart->SendCart()){
+        std::cout<<"NU AM BANIIII"<<std::endl;
+    }
+}
+
+void DashBoard::UpdateImage(int index){
+
+     ui->imageLabel->setPixmap(this->allProducts[product_index]->GetNextImage());
+    std::cout<<"Update image cu indexul: "<<product_index<<std::endl<<std::endl;
+
+    // disconnect(ui->NextImage, &QPushButton::clicked, this, std::bind(&DashBoard::UpdateImage, this, product_index));
+}
+
 void DashBoard::ConstructProductView(int index){
 
+    product_index=index;
+    std::cout<<index<<" ID MAIN";
 
     std::cout<<std::endl<<std::endl<<"Indexul Produsului selectat: "<<index<<std::endl<<std::endl;
 
     std::vector<std::pair<std::string, std::string>>comments;
     std::string description;
 
-    if(this->allProducts[index]->GetState()==0){
+    //if(this->allProducts[index]->GetState()==0){
 
     //setare descriere
-    std::cout<<this->allProducts[index]->GetProductID()<<std::endl;
-    DescriptionRequest::getInstance()->SetIndex(this->allProducts[index]->GetProductID());
+    std::cout<<this->allProducts[product_index]->GetProductID()<<std::endl;
+    DescriptionRequest::getInstance()->SetIndex(this->allProducts[product_index]->GetProductID());
     description=DescriptionRequest::getInstance()->GetDescription();
-    this->allProducts[index]->setDescription(description);
+    this->allProducts[product_index]->setDescription(description);
 
     //setare comments
-    CommentsRequest::getInstance()->SetIndex(this->allProducts[index]->GetProductID());
+    CommentsRequest::getInstance()->SetIndex(this->allProducts[product_index]->GetProductID());
     comments=CommentsRequest::getInstance()->GetComments();
-    this->allProducts[index]->setComments(comments);
+    this->allProducts[product_index]->setComments(comments);
 
 
-    //ImageRequest::getInstance()->Construct_MoreImages(index);
-    //std::vector<QPixmap>new_img=ImageRequest::getInstance()->GetNewImages();
-    //this->allProducts[index]->AddMoreImages(new_img);
+    ImageRequest::getInstance()->Construct_MoreImages(this->allProducts[product_index]->GetProductID());
+    QList<QPixmap>new_img=ImageRequest::getInstance()->GetNewImages();
+
+    this->allProducts[product_index]->AddMoreImages(new_img);
 
 
     //this->allProducts[index]->ModifyState();
 
-    }else{
-        description=this->allProducts[index]->getDescription();
+   // }else{
+        //description=this->allProducts[index]->getDescription();
         //comments=this->allProducts[index]->getComments();
-   }
+   //}
 
     ui->scrollArea_3->setWidgetResizable(true);
     ui->scrollArea_3->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -363,33 +619,75 @@ void DashBoard::ConstructProductView(int index){
 
     ui->scrollArea_3->setWidget(ui->scrollContent_3);
 
-    ui->imageLabel->setPixmap(this->allProducts[index]->GetNextImage());
-    //ui->Price->setText(this->allProducts[index]->getPrice().c_str());
+    ui->imageLabel->setPixmap(this->allProducts[product_index]->GetNextImage());
+    ui->imageLabel->setScaledContents(true);
+    ui->Price->setText(this->allProducts[product_index]->getPrice().c_str());
 
 
-    ui->titleLabel->setText(this->allProducts[index]->getTitle().c_str());
+    ui->titleLabel->setText(this->allProducts[product_index]->getTitle().c_str());
     ui->stackedWidget->setCurrentIndex(3);
-    ui->descriptionLabel->setText(this->allProducts[index]->getDescription().c_str());
+    ui->descriptionLabel->setText(this->allProducts[product_index]->getDescription().c_str());
+
+    ui->Cantitate->setText(this->allProducts[product_index]->GetQuant().c_str());
+
+
+
 
     QObject::connect(ui->Buy, &QPushButton::clicked, [&]() {
+        std::string cantitate=ui->lineEditCantitate->text().toStdString();
         QString text = ui->Price->text();
+        std::cout<<this->allProducts[product_index]->GetProductID()<<"    "<<cantitate<<std::endl;
+
         float price = text.toFloat();
         AddPriceToCart(price);
         AddProdusToCart(ui->titleLabel->text(),ui->Price->text());
+        APPClient::getInstance()->user_client->setToCart
+            (this->allProducts[product_index]->GetProductID(),ui->lineEditCantitate->text().toStdString());
+        std::cout<<this->allProducts[product_index]->GetProductID()<<"    "<<cantitate<<std::endl;
+
     });
 
 
     QObject::connect(ui->AddReview, &QPushButton::clicked, [&]() {
         if(this->AddReview()){
-            //CommentsRequest::getInstance()->SendComment(APPClient::getInstance()->user_client->GetComment()
-            //,APPClient::getInstance()->user_client->GetNota());
+            CommentsRequest::getInstance()->SendComment(APPClient::getInstance()->user_client->GetNota()
+            ,APPClient::getInstance()->user_client->GetComment());
         }
     });
 
 
-    QObject::connect(ui->NextImage, &QPushButton::clicked, [&]() {
-        ui->imageLabel->setPixmap(this->allProducts[index]->GetNextImage());
-    });
+
+    // void clearGridLayout(QGridLayout *gridLayout) {
+    //     QLayoutItem *item;
+    //     while ((item = gridLayout->takeAt(0))) {
+    //         if (QWidget *widget = item->widget()) {
+    //             delete widget; // Șterge widgetul
+    //         }
+    //         delete item; // Șterge item-ul din layout
+    //     }
+    // }
+    // Conectează funcția de ștergere la semnalul clicked al butonului:
+    //                                                                   cpp
+    //                                                                       Copy code
+    //                                                                           // Conectare funcție la semnalul clicked al butonului
+    //                                                                           connect(ui->yourButton, &QPushButton::clicked, [=]() {
+    //                                                                               clearGridLayout(yourGridLayout); // Apelarea funcției de ștergere
+    //                                                                           });
+
+
+
+
+
+
+    QObject::connect(ui->NextImage, &QPushButton::clicked, this, std::bind(&DashBoard::UpdateImage, this, product_index));
+
+    std::cout<<"S-a construit produsul:: "<<product_index<<std::endl<<"-----------------------\n";
+    // QObject::connect(ui->NextImage, &QPushButton::clicked, [&]() {
+    //     ui->imageLabel->setPixmap(this->allProducts[product_index]->GetNextImage());
+    // });
+
+     ui->stackedWidget->setCurrentIndex(6);
+
 
 
 }
@@ -685,7 +983,7 @@ void DashBoard::SetStylePolicyforIcons(){
 
 
     ui->notifications_short->setIcon(notifications);
-    ui->notifications->setIcon(notifications);
+    ui->cont->setIcon(notifications);
 
     ui->signout->setIcon(signout);
     ui->signout_short->setIcon(signout);
@@ -704,8 +1002,8 @@ void DashBoard::SetStylePolicyforIcons(){
     ui->dashboard->setIconSize(iconSize);
     ui->dashboard->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
-    ui->notifications->setIconSize(iconSize);
-    ui->notifications->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->cont->setIconSize(iconSize);
+    ui->cont->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
     ui->signout->setIconSize(iconSize);
     ui->signout->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -785,37 +1083,148 @@ void DashBoard::on_signout_short_clicked()
 
 void DashBoard::on_cart_clicked()
 {
+    ui->ForumButton->hide();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 
 void DashBoard::on_dashboard_clicked()
 {
+    ui->ForumButton->hide();
     ui->stackedWidget->setCurrentIndex(0);
+
+
+    // Verifică dacă widget-ul pageProgramari are un layout setat
+    // QLayout *layout = ui->scrollContent_3->layout();
+    // if (layout) {
+    //     // Șterge toate widget-urile din layout-ul actual al pageProgramari
+    //     QLayoutItem* child;
+    //     while ((child = layout->takeAt(0)) != nullptr) {
+    //         // Șterge widget-ul din layout
+    //         delete child->widget();
+    //         // Șterge item-ul din layout
+    //         delete child;
+    //     }
+    //     // Eliberează memoria ocupată de layout
+    //     delete layout;
+    //     // Setează layout-ul pageProgramari la nullptr pentru a evita referințele nule
+    //     ui->scrollContent_3->setLayout(nullptr);
+    // }
+
+
+    QLayout *layout = ui->scrollContent_3->layout();
+    if (layout) {
+        // Șterge toate widget-urile și layout-urile din grid
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr) {
+            // Verifică dacă item-ul este un widget sau un alt layout
+            if (child->widget()) {
+                // Dacă este un widget, șterge-l
+                delete child->widget();
+            } else if (child->layout()) {
+                // Dacă este un alt layout, șterge recursiv widget-urile și layout-urile sale
+                QLayout *childLayout = child->layout();
+                QLayoutItem *childItem;
+                while ((childItem = childLayout->takeAt(0)) != nullptr) {
+                    if (childItem->widget()) {
+                        delete childItem->widget();
+                    }
+                    delete childItem;
+                }
+                // Șterge layout-ul copil
+                delete childLayout;
+            }
+            // Șterge item-ul din layout-ul principal
+            delete child;
+        }
+        // Setează layout-ul la nullptr pentru a elibera memoria
+        delete layout;
+        ui->scrollContent_3->setLayout(nullptr);
+    }
 }
 
 
 void DashBoard::on_dashboard_short_clicked()
 {
+    ui->ForumButton->hide();
     ui->stackedWidget->setCurrentIndex(0);
+
+
+
+        // Verifică dacă widget-ul pageProgramari are un layout setat
+        // QLayout *layout = ui->scrollContent_3->layout();
+        // if (layout) {
+        //     // Șterge toate widget-urile din layout-ul actual al pageProgramari
+        //     QLayoutItem* child;
+        //     while ((child = layout->takeAt(0)) != nullptr) {
+        //         // Șterge widget-ul din layout
+        //         delete child->widget();
+        //         // Șterge item-ul din layout
+        //         delete child;
+        //     }
+        //     // Eliberează memoria ocupată de layout
+        //     delete layout;
+        //     // Setează layout-ul pageProgramari la nullptr pentru a evita referințele nule
+        //     ui->scrollContent_3->setLayout(nullptr);
+        // }
+
+
+    QLayout *layout = ui->scrollContent_3->layout();
+    if (layout) {
+        // Șterge toate widget-urile și layout-urile din grid
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr) {
+            // Verifică dacă item-ul este un widget sau un alt layout
+            if (child->widget()) {
+                // Dacă este un widget, șterge-l
+                delete child->widget();
+            } else if (child->layout()) {
+                // Dacă este un alt layout, șterge recursiv widget-urile și layout-urile sale
+                QLayout *childLayout = child->layout();
+                QLayoutItem *childItem;
+                while ((childItem = childLayout->takeAt(0)) != nullptr) {
+                    if (childItem->widget()) {
+                        delete childItem->widget();
+                    }
+                    delete childItem;
+                }
+                // Șterge layout-ul copil
+                delete childLayout;
+            }
+            // Șterge item-ul din layout-ul principal
+            delete child;
+        }
+        // Setează layout-ul la nullptr pentru a elibera memoria
+        delete layout;
+        ui->scrollContent_3->setLayout(nullptr);
+    }
+
+
 }
 
 
 void DashBoard::on_cart_short_clicked()
 {
+    ui->ForumButton->hide();
     ui->stackedWidget->setCurrentIndex(2);
+
 }
 
 
 
 void DashBoard::on_offerts_clicked()
 {
+
+    ConstructForumPage();
+    ui->ForumButton->show();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 
 void DashBoard::on_offerts_short_clicked()
 {
+    ConstructForumPage();
+     ui->ForumButton->show();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -823,5 +1232,183 @@ void DashBoard::on_offerts_short_clicked()
 void DashBoard::on_Buy_clicked()
 {
 
+}
+
+
+
+
+
+void DashBoard::on_NewPasswSUBMIT_clicked()
+{
+
+
+    //trimit 9 si nume parola noua
+    std::string pass=ui->VerifyParola->text().toStdString();
+    std::string new_pass=ui->NewParola->text().toStdString();
+    std::string new_pass_Again=ui->NewParolaAgain->text().toStdString();
+
+    if(pass==APPClient::getInstance()->user_client->getParola()){
+        if(new_pass==new_pass_Again){
+            PasswordChangeRequest*new_req=new PasswordChangeRequest();
+            new_req->SetPass(new_pass);
+            new_req->SendPass();
+        }
+    }
+
+  ui->stackedWidget->setCurrentIndex(3);
+
+}
+
+
+void DashBoard::on_SchimbaParola_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+
+//stacked cont parola
+
+
+//6 produs view
+
+
+//cont 3
+//5 parola
+//cos: 2
+//0 dashboard
+//4 card
+
+void DashBoard::on_cont_clicked()
+{
+    ui->ForumButton->hide();
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void DashBoard::on_AdaugaCard_clicked()
+{
+    ui->ForumButton->hide();
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void DashBoard::on_Add_Card_Button_clicked()
+{
+    Card*new_card=new Card();
+    //ordinea de primire de la server
+    //numar,owner name,data exp,cvc
+
+    new_card->Number=ui->NumarCard->text().toStdString();
+    new_card->cvc=ui->CVC->text().toStdString();
+    new_card->Nume_Detinator=ui->Detinator->text().toStdString();
+    new_card->Data=ui->DataExpirarii->text().toStdString();
+
+    APPClient::getInstance()->user_client->setCard(new_card);
+
+
+    ui->VIEWcvc->setText(new_card->cvc.c_str());
+    ui->VIEWData->setText(new_card->Data.c_str());
+    ui->VIEWNumar->setText(new_card->Number.c_str());
+    ui->VIEWOwner->setText(new_card->Nume_Detinator.c_str());
+    ui->VIEWCARD->show();
+
+    CardRequest cardReq;
+    cardReq.GetData(new_card);
+    cardReq.SendCard();
+
+
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void DashBoard::on_AdaugaBani_clicked()
+{
+
+    if( APPClient::getInstance()->user_client->GetCard()==nullptr){
+            QMessageBox::warning(nullptr, "Eroare", "Nu ai introdus inca un card de credit sau de debit valid");
+    }else{
+
+    bool ok;
+    QString text = QInputDialog::getText(this, "Introducere text", "Introduceti suma dorita", QLineEdit::Normal, "", &ok);
+    if (ok && !text.isEmpty()) {
+        // Textul a fost introdus și butonul "OK" a fost apăsat
+        // Acum poți face ceva cu textul introdus
+        qDebug() << "Text introdus:" << text;
+        MoneyAddRequest req;
+        req.setValue(text.toStdString());
+        req.SendMoneyReq();
+    } else {
+        // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
+        qDebug() << "Utilizatorul a anulat introducerea textului.";
+
+     }
+    }
+
+}
+
+
+void DashBoard::on_ForumButton_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, "Introducere text", "Introdu un text:", QLineEdit::Normal, "", &ok);
+    if (ok && !text.isEmpty()) {
+        // Textul a fost introdus și butonul "OK" a fost apăsat
+        // Acum poți face ceva cu textul introdus
+        qDebug() << "Text introdus:" << text;
+
+        ForumRequest forumR;
+        forumR.SendForumComment(category,text.toStdString());
+        //------------------------------
+
+        QLayout *lay = ui->scrollContents_5->layout();
+
+        QFrame *frame = new QFrame;
+
+
+        QVBoxLayout *layout = new QVBoxLayout;
+
+
+        frame->setFixedHeight(271);
+        frame->setFixedWidth(800); // Setează lățimea fixă pentru frame
+        frame->setStyleSheet("background-color: white; border-radius: 10px;");
+
+
+        QLabel *label1 = new QLabel;
+        label1->setMaximumSize(251, 71);
+        label1->setGeometry(10, 10, 251, 71);
+        label1->setStyleSheet("background-color: #FFCDD2; border-radius: 10px;"); // Culoare roșie deschisă
+        label1->setText(APPClient::getInstance()->user_client->getNume().c_str());
+
+        QLabel *label2 = new QLabel;
+        label2->setMaximumHeight(371);
+        label2->setGeometry(10, 87, 251, 200);
+        label2->setStyleSheet("background-color: #BBDEFB; border-radius: 10px;");
+        label2->setText("category");
+
+
+
+        QTextEdit *textEdit3 = new QTextEdit;
+        textEdit3->setMaximumHeight(371);
+        textEdit3->setGeometry(10, 164, 251, 371);
+        textEdit3->setStyleSheet("background-color: #C8E6C9; border-radius: 10px;"); // Culoare verde deschis
+        textEdit3->setText(text);
+        textEdit3->setReadOnly(true); // Setează textul ca fiind doar pentru citire, similar cu un QLabel
+
+
+        layout->addWidget(label1);
+        layout->addWidget(label2);
+        layout->addWidget(textEdit3);
+
+
+        frame->setLayout(layout);
+
+        lay->addWidget(frame);
+
+    } else {
+        // Utilizatorul a apăsat butonul "Cancel" sau a închis fereastra
+        qDebug() << "Utilizatorul a anulat introducerea textului.";
+
+    }
 }
 

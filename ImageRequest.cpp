@@ -13,13 +13,15 @@ ImageRequest*ImageRequest::getInstance(){
 
 char*ImageRequest::GetAnswer(){return this->answer;}
 
-void ImageRequest:: Construct_MoreImages(int id){
+void ImageRequest:: Construct_MoreImages(std::string id){
+
+    this->new_images.clear();
 
     this->message="6";
     this->Request();
 
-    QString str = QString::number(id);
-    this->message=str.toStdString();
+    // QString str = QString::number(id);
+    this->message=id;
     this->Request();
 
     this->Answer();
@@ -27,33 +29,42 @@ void ImageRequest:: Construct_MoreImages(int id){
     APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
 
     for(int i=0;i<size;i++){
-        QPixmap pixmap=ReceiveImages();
-        this->new_images.push_back(pixmap);
+        QPixmap pixmap_new=APPClient::getInstance()->getTcpClient()->receiveImage();
+        if (!pixmap_new.isNull()) {
+        this->new_images.append(pixmap_new);
+        }
     }
 
 }
-std::vector<QPixmap> ImageRequest::GetNewImages()const{
+QList<QPixmap> ImageRequest::GetNewImages()const{
     return this->new_images;
 }
 int ImageRequest::FindSize(){
 
-    //this->message="3";
-    //if(this->Request()){
+
+
+
+
+
         DataRequest::Answer();
         APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
         return atoi(this->answer);
-    //}
+
 }
+
 void  ImageRequest::Construct_Images(){
 
     DataRequest::Answer();
     APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
     this->actual_title=this->answer;
+
     DataRequest::Answer();
     APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
     this->price=this->answer;
+
     DataRequest::Answer();
     APPClient::getInstance()->getTcpClient()->send("ACK", strlen("ACK"));
+
     QString qstr = QString::fromUtf8(this->answer);
     this->ID=qstr.toStdString();
     std::cout<<this->ID<<std::endl;
@@ -72,7 +83,7 @@ std::string ImageRequest::GetID(){
 std::string ImageRequest::getCantitate(){
     return this->cantitate;
 }
-QPixmap  ImageRequest::getImage(){
+QPixmap ImageRequest::getImage(){
     return this->actual_pixmap;
 }
 QPixmap ImageRequest::ReceiveImages(){

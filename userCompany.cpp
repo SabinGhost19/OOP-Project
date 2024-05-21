@@ -41,6 +41,9 @@ void UserCompany::setScara(const std::string &value){
 void UserCompany::setNrApp(const std::string &value){
     nrApp=value;
 }
+void UserCompany::setProfit(const std::string &value){
+    this->total_profit=value;
+}
 
 // Getteri
 std::string UserCompany::getScara() const {
@@ -51,6 +54,9 @@ std::string UserCompany::getNrApp() const {
 }
 std::string UserCompany::getId() const {
     return id;
+}
+std::string UserCompany::getPorfit()const{
+    return total_profit;
 }
 std::string UserCompany::getRol() const {
     return rol;

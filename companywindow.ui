@@ -14,13 +14,13 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(155, 255, 195);</string>
+   <string notr="true">background-color: rgb(199, 255, 230);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
+     <x>10</x>
+     <y>50</y>
      <width>411</width>
      <height>161</height>
     </rect>
@@ -42,11 +42,24 @@
   <widget class="QPushButton" name="AddNewProduct">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>490</y>
-     <width>201</width>
+     <x>110</x>
+     <y>600</y>
+     <width>121</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
    </property>
    <property name="text">
     <string>GO</string>
@@ -55,29 +68,35 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>400</y>
-     <width>301</width>
-     <height>91</height>
+     <x>30</x>
+     <y>550</y>
+     <width>291</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Segoe UI Symbol</family>
+     <family>Segoe UI Variable Small Semibol</family>
      <pointsize>20</pointsize>
+     <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
    </property>
    <property name="text">
     <string>ADD new Products</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_products">
    <property name="geometry">
     <rect>
-     <x>760</x>
+     <x>640</x>
      <y>30</y>
      <width>241</width>
      <height>71</height>
@@ -98,32 +117,186 @@
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>440</x>
      <y>120</y>
-     <width>501</width>
-     <height>351</height>
+     <width>701</width>
+     <height>471</height>
     </rect>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
    </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
+   <widget class="QWidget" name="scrollAreaContents">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>499</width>
-      <height>349</height>
+      <width>699</width>
+      <height>469</height>
      </rect>
     </property>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>681</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>361</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Schimba pret</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>240</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Schimba pret</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>80</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>140</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QLabel" name="label_profit">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>490</y>
-     <width>181</width>
+     <x>570</x>
+     <y>600</y>
+     <width>191</width>
      <height>61</height>
     </rect>
    </property>
@@ -131,6 +304,11 @@
     <font>
      <pointsize>15</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
    </property>
    <property name="text">
     <string>Total Profit:</string>
@@ -142,8 +320,8 @@
   <widget class="QLabel" name="profit">
    <property name="geometry">
     <rect>
-     <x>850</x>
-     <y>490</y>
+     <x>780</x>
+     <y>600</y>
      <width>181</width>
      <height>61</height>
     </rect>
@@ -153,13 +331,142 @@
      <pointsize>15</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(176, 201, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
+   </property>
    <property name="text">
-    <string>$$$$$</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="Back">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Display Semib</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
+   </property>
+   <property name="text">
+    <string>Numar de Produse Listate:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="NrProduseListate">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>320</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Display Semib</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
+   </property>
+   <property name="text">
+    <string>Nume Companie:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="NumeCompanie">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>240</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(60, 122, 255);
+background-color: rgb(190, 250, 235);
+border-radius: 30px; </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>AddNewProduct</zorder>
+  <zorder>label_products</zorder>
+  <zorder>scrollArea</zorder>
+  <zorder>label_profit</zorder>
+  <zorder>profit</zorder>
+  <zorder>Back</zorder>
+  <zorder>label_3</zorder>
+  <zorder>NrProduseListate</zorder>
+  <zorder>label_12</zorder>
+  <zorder>NumeCompanie</zorder>
  </widget>
  <resources/>
  <connections/>

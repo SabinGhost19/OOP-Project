@@ -9,11 +9,13 @@ CompanyAddRequest::CompanyAddRequest() {}
 void CompanyAddRequest::sendImage(std::string filename){
 
     FILE* file;
+
+
+    file=fopen(filename.c_str(), "rb");
+
     if (!file) {
         throw "Eroare la deschidere fisier";
     }
-
-    file=fopen(filename.c_str(), "rb");
 
     fseek(file, 0, SEEK_END);
     int imgDim = ftell(file);

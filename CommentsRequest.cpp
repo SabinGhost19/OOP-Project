@@ -16,6 +16,7 @@ CommentsRequest*CommentsRequest::getInstance(){
 }
 
 void CommentsRequest::SetIndex(std::string index_p){
+    this->comments.clear();
     this->index=index_p;
 }
 void CommentsRequest::SendComment(std::string review,std::string nota){
