@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Account.h"
 #include <string.h>
 
@@ -33,9 +34,19 @@ char* Account::getPassword()
 	return this->password;
 }
 
-Roles Account::getAccountRole()
+char* Account::getAccountRole()
 {
-	return this->accountRole;
+	switch (this->accountRole)
+	{
+	case ADMIN:
+		return (char*)"Admin";
+	case CLIENT:
+		return (char*)"Client";
+	case COMPANY:
+		return (char*)"Company";
+	default:
+		return (char*)"NO ROLE!";
+	}
 }
 
 Account::~Account()

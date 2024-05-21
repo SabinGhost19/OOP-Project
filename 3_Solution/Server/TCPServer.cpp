@@ -1,13 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "TCPServer.h"
 #include "Exception.h"
+#include "APPServer.h"
 #include "ServerLogger.h"
 #include <fstream>
 #include <iostream>
 #include <stdint.h>
 #include <string>
-
-int n = 0;
 
 int TCPServer::sock_init()
 {
@@ -24,7 +23,7 @@ int TCPServer::sock_init()
 }
 
 TCPServer::TCPServer(short listen_port) : port(listen_port)
-{
+{ 
     sock_init();
 
     int iResult;
@@ -38,7 +37,6 @@ TCPServer::TCPServer(short listen_port) : port(listen_port)
     char port_str[6];
     _itoa_s(listen_port, port_str, 10);
 
-    // Resolve the server address and port
     iResult = getaddrinfo(NULL, port_str, &hints, &result);
     if (iResult != 0) {
         printf("getaddrinfo failed with error: %d\n", iResult);
@@ -73,6 +71,7 @@ TCPServer::TCPServer(short listen_port) : port(listen_port)
 
 void TCPServer::wait_connection()
 {
+    std::cout << "Waiting for connection: ";
     client_sock = accept(listen_sock, NULL, NULL);
     std::string loggAction = "CLIENT ON SOCKET ";
     loggAction += std::to_string(client_sock);
@@ -90,12 +89,15 @@ void TCPServer::wait_connection()
 
 bool TCPServer::closeConnection()
 {
+    std::cout << "Client is closing connection" << endl;
     closesocket(client_sock);
     client_sock = NULL;
     std::string loggAction = "CLIENT ON SOCKET ";
     loggAction += std::to_string(client_sock);
     loggAction += " DISCONNECTED";
     ServerLogger::getInstance("SocketActivity.txt")->loggAction(loggAction.c_str());
+    /*IClient* clientToDelete = APPServer::getInstance()->getManagedClient();
+    delete clientToDelete;*/
     return true;
 }
 
@@ -114,11 +116,7 @@ int TCPServer::recv(char* recv_buff, const int size)
 int TCPServer::sendImage(const char* imageName)
 {
     FILE* file;
-    if(n%2==0)
-        file = fopen("C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\sigla.png", "rb");
-    else
-        file = fopen("C:\\Users\\George\\Desktop\\download.png", "rb");
-    n++;
+    file = fopen(imageName, "rb");
     if (!file) {
         throw "Eroare la deschidere fisier";
     }
@@ -147,13 +145,61 @@ int TCPServer::sendImage(const char* imageName)
             sentBytes = send((const char*)buffer, 40960);
             bytesthatHasBeenSent -= sentBytes;
         }
+        std::cout << bytesthatHasBeenSent << endl;
         bytesRemained -= 40960;
-        std::cout << sentBytes<<std::endl;
         nrOfBytes = recv(accBuffer, 50);
         memset(buffer, 40960, 0);
     }
     fclose(file);
-    std::cout << bytesthatHasBeenSent;
+    free(buffer);
+    std::cout << "Image has been sent!" << std::endl;
+}
+
+char* TCPServer::recvImage()
+{
+    int nrOfBytes = 0;
+    char dimToRecvChar[50];
+    nrOfBytes = this->recv(dimToRecvChar, 50);
+
+    nrOfBytes = this->send("ACK", strlen("ACK"));
+    int dimToRecvInt;
+    dimToRecvInt = atoi(dimToRecvChar);
+    uint8_t* bufferToRecv = (uint8_t*)malloc(dimToRecvInt);
+    memset(bufferToRecv, 0, dimToRecvInt);
+
+    uint8_t* bufferInter = (uint8_t*)malloc(static_cast<int>(40960));
+    memset(bufferInter, 0, 40960);
+
+
+    int bytesThatHasBeenSent = 0;
+    int i = 1;
+    std::string finalBuffer;
+    for (i = 1; i <= (dimToRecvInt / 40960) + 1; i++) {
+        if (dimToRecvInt - bytesThatHasBeenSent < 40960) {
+            nrOfBytes = this->recv((char*)bufferInter, dimToRecvInt - bytesThatHasBeenSent);
+        }
+        else {
+            nrOfBytes = this->recv((char*)bufferInter, 40960);
+        }
+        bytesThatHasBeenSent += nrOfBytes;
+        std::cout << bytesThatHasBeenSent << std::endl;
+        memcpy(bufferToRecv + (i - 1) * 40960, bufferInter, nrOfBytes);
+        memset(bufferInter, 0, 40960);
+
+        nrOfBytes = this->send("ACK", strlen("ACK"));
+    }
+
+    char path[150] = "C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\Server\\ImaginiSalvateDeServer\\";
+    char imageNo[10];
+    strcpy(imageNo, APPServer::getInstance()->getBDComm()->getNrOfImages());
+    strcat(path, imageNo);
+    strcat(path, ".png");
+    FILE* f = fopen(path, "wb");
+    fwrite(bufferToRecv, 1, bytesThatHasBeenSent, f);
+    fclose(f);
+    free(bufferToRecv);
+    free(bufferInter);
+    return path;
 }
 
 TCPServer::~TCPServer()

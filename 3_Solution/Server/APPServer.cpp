@@ -3,6 +3,26 @@
 #include <iostream>
 #include "APPServer.h"
 #include "ServerLogger.h"
+#include "SignInRequest.h"
+#include "SignUpRequest.h"
+#include "AddProductRequest.h"
+#include "ReviewRequest.h"
+#include "DescriptionRequest.h"
+#include "ImageRequest.h"
+#include "BuyProductRequest.h"
+#include "AddCardRequest.h"
+#include "ChangePasswdRequest.h"
+#include "AddMoneyRequest.h"
+#include "ServerLogger.h"
+#include "Exception.h"
+#include "ChangeQuantityRequest.h"
+#include "ChangePriceRequest.h"
+#include "ForumBuilder.h"
+#include "ForumRequest.h"
+#include "AddForumPostRequest.h"
+#include "FirstImageRequest.h"
+
+using namespace std;
 
 APPServer* APPServer::instance = nullptr;
 
@@ -13,6 +33,10 @@ APPServer* APPServer::getInstance()
     instance = new APPServer;
     instance->tcpServer = new TCPServer(12345);
     instance->BDCommunication = new BDComm;
+    instance->bringProductsFromDB();
+    ForumBuilder builderForForum;
+    instance->forum = builderForForum.buildForum();
+    instance->managedClient = nullptr;
     return instance;
 }
 
@@ -21,90 +45,38 @@ TCPServer* APPServer::getTcpServer()
     return instance->tcpServer;
 }
 
+BDComm* APPServer::getBDComm()
+{
+    return instance->BDCommunication;
+}
+
+IClient* APPServer::getManagedClient()
+{
+    return this->managedClient;
+}
+
+std::vector<Product*> APPServer::getListedProducts()
+{
+    return this->listedProducts;
+}
+
+Forum* APPServer::getForum()
+{
+    return this->forum;
+}
+
+void APPServer::setManagedClient(IClient* ClientToManage)
+{
+    this->managedClient = ClientToManage;
+}
+
 APPServer::APPServer()
 {
     instance = nullptr;
     tcpServer = nullptr;
     BDCommunication = nullptr;
-}
-
-bool APPServer::manageLogIn(const char* buffer)
-{
-    std::string bufferNou(buffer);
-    size_t delimiterPos = bufferNou.find('#');
-    if (delimiterPos == std::string::npos) {
-        std::cerr << "Delimitatorul # nu a fost gasit în sirul de intrare." << std::endl;
-        return 1;
-    }
-
-    std::string email = bufferNou.substr(0, delimiterPos);
-
-
-    std::string password = bufferNou.substr(delimiterPos + 1);
-
-
-    password.erase(0, password.find_first_not_of(' '));
-    password.erase(password.find_last_not_of(' ') + 1);
-
-    std::string query("SELECT COUNT(*) FROM ContClient WHERE Email = '");
-
-    query += email;
-    query += '\'';
-
-    SQLWCHAR* queryWCHAR = BDCommunication->ConvertToWideChar(query.c_str());
-
-    int len = 0;
-
-    BDCommunication->CreateConnection();
-    int nrOfEmails = atoi(BDCommunication->GetQuery(queryWCHAR, len));
-    BDCommunication->CloseConnection();
-    char messageToSend[254];
-    if (nrOfEmails == 0)
-    {
-        std::string loggAction("LOGIN REQUEST BY EMAIL: ");
-        loggAction += email;
-        loggAction += "THERE IS NO ACCOUNT REGISTERED WITH THIS MAIL";
-        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
-
-        strcpy(messageToSend, "YOUR EMAIL ADDRESS ISN'T REGISTERED");
-        this->tcpServer->send(messageToSend, strlen(messageToSend));
-        return false;
-    }
-
-    char passwordToCheckWith[50] = "";
-
-    query = "SELECT Parola FROM ContClient WHERE Email = '";
-    query += email;
-    query += '\'';
-
-    queryWCHAR = BDCommunication->ConvertToWideChar(query.c_str());
-    BDCommunication->CreateConnection();
-    strcpy(passwordToCheckWith, BDCommunication->GetQuery(queryWCHAR, len));
-    BDCommunication->CloseConnection();
-
-    if (strcmp(passwordToCheckWith, password.c_str()) == 0)
-    {
-        std::string loggAction("THE EMAIL: ");
-        loggAction += email;
-        loggAction += "LOGGED IN SUCCESFULLY";
-        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
-
-        strcpy(messageToSend, "LOGGED IN SUCCESSFULLY");
-        this->tcpServer->send(messageToSend, strlen(messageToSend));
-        this->tcpServer->sendImage("C:\\Users\\George\\Desktop\\Proiect POO\\OPP-Project\\3_Solution\\sigla.png");
-        return true;
-    }
-    else
-    {
-        std::string loggAction("THE EMAIL: ");
-        loggAction += email;
-        loggAction += "TRIED TO LOGGED IN WITH THE WRONG PASSWORD";
-        ServerLogger::getInstance("SignUpAndInLogger.txt")->loggAction(loggAction.c_str());
-
-        strcpy(messageToSend, "WRONG PASSWORD");
-        this->tcpServer->send(messageToSend, strlen(messageToSend));
-        return false;
-    }
+    managedClient = nullptr;
+    listedProducts.clear();
 }
 
 void APPServer::deleteInstance()
@@ -121,24 +93,106 @@ void APPServer::deleteInstance()
 
 bool APPServer::manageRequest(char* buffer)
 {
-    char action1,action2;
-    action1 = buffer[0];
-    strcpy(buffer, buffer + 1);
-    switch (action1)
-    {
-    case '1':
-        manageLogIn(buffer);
-        break;
-    case '2':
-        tcpServer->sendImage("sigla.png");
-        break;
-    case '9':
-        tcpServer->closeConnection();
-        break;
-    default:
-        break;
+    try {
+        int sentBytes = APPServer::getInstance()->getTcpServer()->send("ACK", 4);
+        int action = atoi(buffer);
+        IRequest* newRequest = nullptr;
+        switch (action)
+        {
+        case 1:
+            newRequest = new SignInRequest;
+            newRequest->receiveRequest();
+            newRequest->sendAnswear();
+            break;
+        case 2:
+            newRequest = new SignUpRequest;
+            newRequest->receiveRequest();
+            break;
+        case 3:
+            newRequest = new AddProductRequest;
+            newRequest->receiveRequest();
+            break;
+        case 4:
+            newRequest = new ReviewRequest;
+            newRequest->receiveRequest();
+            break;
+        case 5:
+            newRequest = new DescriptionRequest;
+            newRequest->receiveRequest();
+            newRequest->sendAnswear();
+            break;
+        case 6:
+            newRequest = new ImageRequest;
+            newRequest->receiveRequest();
+            newRequest->sendAnswear();
+            break;
+        case 7:
+            newRequest = new BuyProductRequest;
+            newRequest->receiveRequest();
+            newRequest->sendAnswear();
+            break;
+        case 8:
+            newRequest = new AddCardRequest;
+            newRequest->receiveRequest();
+            break;
+        case 9:
+            newRequest = new ChangePasswdRequest;
+            newRequest->receiveRequest();
+            break;
+        case 10:
+            newRequest = new AddMoneyRequest;
+            newRequest->receiveRequest();
+            break;
+        case 11:
+            newRequest = new ChangePriceRequest;
+            newRequest->receiveRequest();
+            break;
+        case 12:
+            newRequest = new ChangeQuantityRequest;
+            newRequest->receiveRequest();
+            break;
+        case 13:
+            newRequest = new ForumRequest;
+            newRequest->receiveRequest();
+            break;
+        case 14:
+            newRequest = new AddForumPostRequest;
+            newRequest->receiveRequest();
+            break;
+        case 15:
+            newRequest = new FirstImageRequest;
+            newRequest->receiveRequest();
+            break;
+        default:
+            break;
+        }
+        if (newRequest != nullptr)
+            delete newRequest;
+        return true;
     }
-    return true;
+    catch (Exception& e)
+    {
+        ServerLogger::getInstance("ExceptionLogger.txt")->loggAction(e.what());
+    }
+    catch (...)
+    {
+        ServerLogger::getInstance("ExceptionLogger.txt")->loggAction("SOMETHING WENT WRONG!");
+        this->tcpServer->closeConnection();
+    }
+}
+
+void APPServer::listProduct(Product* listedProduct)
+{
+    this->listedProducts.push_back(listedProduct);
+}
+
+void APPServer::bringProductsFromDB()
+{
+    this->listedProducts = this->BDCommunication->getAllProducts();
+    for (auto iterator : this->listedProducts)
+        iterator->setAllImages(this->BDCommunication->getProductPhotos(iterator->getProductId()));
+    for (auto iterator : this->listedProducts)
+        iterator->addAllReviews(APPServer::getBDComm()->getProductReviews(iterator->getProductId()));
 }
 
 APPServer::~APPServer()
