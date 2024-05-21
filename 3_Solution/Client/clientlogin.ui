@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientLogin</class>
+ <widget class="QDialog" name="ClientLogin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>790</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="Email">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>210</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Parola">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Nume">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>150</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Prenume">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>230</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Telefon">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>340</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="DataNasterii">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>440</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="CodPostal">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>140</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Tara">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>220</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Judet">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>290</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Oras">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>370</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Strada">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>460</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Numarul">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>550</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Back">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>50</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #6188FF;
+    padding: 12px 24px;
+    border: 2px solid #063263; /* Adăugați contur cu grosimea și culoarea specificată */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+/* Stil pentru butoanele QPushButton */
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LoginButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>630</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #6188FF;
+    padding: 12px 24px;
+    border: 2px solid #063263; /* Adăugați contur cu grosimea și culoarea specificată */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+/* Stil pentru butoanele QPushButton */
+
+
+</string>
+   </property>
+   <property name="text">
+    <string>LogIn</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Scara">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>640</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="NumarApartament">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>640</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 2px solid #ccc;  /* Adaugă un contur de 2px solid cu o culoare gri deschis */
+    border-radius: 5px;      /* Rotunjeste marginile */
+    padding: 5px;            /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+    font-family: Arial, sans-serif; /* Setează fontul textului */
+    font-size: 14px;         /* Setează dimensiunea fontului */
+    color: #333;             /* Setează culoarea textului la un gri mai închis */
+}
+
+QLineEdit:hover {
+    border-color: #aaa;      /* Schimbă culoarea conturului la un gri mai deschis atunci când mouse-ul este deasupra */
+}
+
+QLineEdit:focus {
+    border-color: #0078d7;  /* Schimbă culoarea conturului la albastru atunci când lineEdit-ul are focus */
+}</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

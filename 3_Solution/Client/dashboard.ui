@@ -1,0 +1,3122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DashBoard</class>
+ <widget class="QWidget" name="DashBoard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1305</width>
+    <height>819</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(170, 255, 255);</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>251</width>
+       <height>801</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+background-color:rgb(3, 175, 251)
+}
+
+QPushButton{
+color:white;
+height:50px;
+border:none;
+border-radius:10px;
+}
+
+QPushButton:checked{
+background-color:#FFFFFF;
+color:#063263;
+font-weight:bold;
+}</string>
+     </property>
+     <widget class="QPushButton" name="profile">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="offerts">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>250</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cont">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cart">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dashboard">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="signout">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>730</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QWidget" name="widget_3" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>881</width>
+       <height>801</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QWidget" name="widget_4" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>881</width>
+          <height>111</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 15px;        /* Setează colțurile rotunjite la o rază de 15px */
+}</string>
+        </property>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>10</y>
+           <width>101</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="QtResource.qrc">:/img/img/Logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="slide">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>20</y>
+           <width>91</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+
+QPushButton{
+background-color:#E6E6E6;
+border-radius:10px;
+border:none;
+}
+QPushButton:checked{
+background-color:#E6E6E6;
+border-radius:10px;
+font-weight:bold;
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>30</y>
+           <width>331</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="search">
+         <property name="geometry">
+          <rect>
+           <x>590</x>
+           <y>20</y>
+           <width>91</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+
+QPushButton{
+background-color:#E6E6E6;
+border-radius:10px;
+border:none;
+}
+QPushButton:checked{
+background-color:#E6E6E6;
+border-radius:10px;
+font-weight:bold;
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboBox">
+         <property name="geometry">
+          <rect>
+           <x>690</x>
+           <y>10</y>
+           <width>162</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+	background-color: rgb(255, 255, 255);
+    background-color: #C8F7FF; /* Culoarea de fundal */
+    border: 1px solid #C8F7FF; /* Bordura */
+    border-radius: 10px; /* Rotunjirea colțurilor */
+    padding: 5px; /* Spațiul interior */
+    min-width: 150px; /* Lățime minimă */
+}
+
+QComboBox::drop-down {
+    width: 20px; /* Lățimea butonului de deschidere */
+}
+
+QComboBox::down-arrow {
+    image: url(:/images/down_arrow.png); /* Imaginea săgeții în jos */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #C8F7FF; /* Culoarea de fundal */
+    selection-background-color: #6DDFFF; /* Culoarea de fundal a elementului selectat */
+    color: black; /* Culoarea textului */
+    border: none; /* Eliminarea bordurii */
+    padding: 8px; /* Spațiul interior al fiecărui element */
+}
+
+QComboBox::item:selected {
+    background-color: #6DDFFF; /* Culoarea de fundal a elementului selectat */
+    color: white; /* Culoarea textului pentru elementul selectat */
+}
+
+</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="ForumButton">
+         <property name="geometry">
+          <rect>
+           <x>720</x>
+           <y>60</y>
+           <width>121</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(124, 170, 255);</string>
+         </property>
+         <property name="text">
+          <string>Add Comment</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="minimumSize">
+         <size>
+          <width>871</width>
+          <height>691</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(234, 234, 234);</string>
+        </property>
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <widget class="QWidget" name="dashboard_page">
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="minimumSize">
+             <size>
+              <width>901</width>
+              <height>661</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QScrollBar:vertical {
+    border: none;
+    background-color: rgba(192, 192, 192, 0.5); /* Culoare gri transparent */
+    width: 12px; /* Lățimea barei de scroll */
+    margin: 20px 0 20px 0; /* Margini de sus și jos */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::handle:vertical {
+    background-color: #707070; /* Culoarea mânerului (butonului de derulare) */
+    min-height: 20px; /* Înălțime minimă a mânerului */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; /* Nu se afișează fundalul pentru butoanele de derulare */
+}
+</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollContens">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>899</width>
+               <height>671</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="forum_page">
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="0" column="0">
+           <widget class="QScrollArea" name="scrollArea_4">
+            <property name="styleSheet">
+             <string notr="true">QScrollBar:vertical {
+    border: none;
+    background-color: rgba(192, 192, 192, 0.5); /* Culoare gri transparent */
+    width: 12px; /* Lățimea barei de scroll */
+    margin: 20px 0 20px 0; /* Margini de sus și jos */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::handle:vertical {
+    background-color: #707070; /* Culoarea mânerului (butonului de derulare) */
+    min-height: 20px; /* Înălțime minimă a mânerului */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; /* Nu se afișează fundalul pentru butoanele de derulare */
+}
+</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollContents_5">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>855</width>
+               <height>671</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="cart_page">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QFrame" name="frame">
+            <property name="minimumSize">
+             <size>
+              <width>361</width>
+              <height>341</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(212, 235, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="TotalCosCumparaturi">
+             <property name="geometry">
+              <rect>
+               <x>220</x>
+               <y>190</y>
+               <width>91</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="TotalCosLABEL">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>190</y>
+               <width>181</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string>Total Cos Cumparaturi</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="Prenume">
+             <property name="geometry">
+              <rect>
+               <x>220</x>
+               <y>40</y>
+               <width>91</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="NumeLABEL">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>40</y>
+               <width>91</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string>Nume</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibiliLABEL">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>120</y>
+               <width>121</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string>Bani Disponibili</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="Nume">
+             <property name="geometry">
+              <rect>
+               <x>120</x>
+               <y>40</y>
+               <width>91</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>120</y>
+               <width>91</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="Comanda">
+             <property name="geometry">
+              <rect>
+               <x>100</x>
+               <y>280</y>
+               <width>131</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI Variable Display Semib</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+             </property>
+             <property name="text">
+              <string>COMANDA</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QFrame" name="frame_2">
+            <property name="minimumSize">
+             <size>
+              <width>501</width>
+              <height>341</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(212, 235, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>156</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="TotalCosCumparaturi_2">
+               <property name="minimumSize">
+                <size>
+                 <width>101</width>
+                 <height>31</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);</string>
+               </property>
+               <property name="text">
+                <string>Your Cart</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>206</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QScrollArea" name="scrollArea_2">
+               <property name="minimumSize">
+                <size>
+                 <width>481</width>
+                 <height>281</height>
+                </size>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollContents_4">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>479</width>
+                  <height>297</height>
+                 </rect>
+                </property>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QFrame" name="AdresaLivrare">
+            <property name="minimumSize">
+             <size>
+              <width>431</width>
+              <height>311</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(212, 235, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="BaniDisponibili_17">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>130</y>
+               <width>121</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>NrApartament:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_4">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>20</y>
+               <width>79</width>
+               <height>96</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_20">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Numar:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_21">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Scara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili_44">
+             <property name="geometry">
+              <rect>
+               <x>380</x>
+               <y>130</y>
+               <width>51</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+             </property>
+             <property name="text">
+              <string>321</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_7">
+             <property name="geometry">
+              <rect>
+               <x>360</x>
+               <y>20</y>
+               <width>50</width>
+               <height>96</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_47">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>321</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_48">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>321</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_5">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>131</width>
+               <height>281</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
+              <property name="spacing">
+               <number>13</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_22">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Cod Postal:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_23">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Strada:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_24">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Tara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_25">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Judet:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_26">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Scara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_27">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Oras:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_8">
+             <property name="geometry">
+              <rect>
+               <x>120</x>
+               <y>10</y>
+               <width>141</width>
+               <height>281</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <property name="spacing">
+               <number>13</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_28">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_49">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_50">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_51">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_52">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_53">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili_55">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>260</y>
+               <width>131</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #6862FF;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Adresa Facturare</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_4">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>170</y>
+               <width>101</width>
+               <height>81</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="QtResource.qrc">:/img/img/paper.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QFrame" name="AdresaFacturare">
+            <property name="minimumSize">
+             <size>
+              <width>421</width>
+              <height>311</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(212, 235, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QWidget" name="verticalLayoutWidget">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>131</width>
+               <height>281</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>13</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_3">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Cod Postal:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_6">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Strada:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_4">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Tara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_2">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Judet:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_8">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string>Scara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_5">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Oras:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_3">
+             <property name="geometry">
+              <rect>
+               <x>120</x>
+               <y>10</y>
+               <width>141</width>
+               <height>281</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
+               <number>13</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="CodPostal">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="Strada">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="Tara">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_14">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_15">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_16">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_2">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>20</y>
+               <width>79</width>
+               <height>96</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_7">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Numar:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_9">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Scara:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili_10">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>130</y>
+               <width>121</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>NrApartament:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget_6">
+             <property name="geometry">
+              <rect>
+               <x>360</x>
+               <y>20</y>
+               <width>50</width>
+               <height>96</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_41">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>321</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="BaniDisponibili_42">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>321</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili_43">
+             <property name="geometry">
+              <rect>
+               <x>380</x>
+               <y>130</y>
+               <width>51</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #686BCC;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+
+</string>
+             </property>
+             <property name="text">
+              <string>321</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="BaniDisponibili_54">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>260</y>
+               <width>131</width>
+               <height>36</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #6862FF;   /* Setează culoarea de fundal */
+    color: white;                /* Setează culoarea textului la alb */
+    border-radius: 10px;         /* Rotunjește colțurile */
+           /* Adaugă spațiu interior */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>AdresaLivrare</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_3">
+             <property name="geometry">
+              <rect>
+               <x>290</x>
+               <y>170</y>
+               <width>111</width>
+               <height>81</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="QtResource.qrc">:/img/img/delivery.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="Cont">
+         <widget class="QLabel" name="ContNume">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>30</y>
+            <width>261</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(253, 198, 255);</string>
+          </property>
+          <property name="text">
+           <string>Nume</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="ContPrenume">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>130</y>
+            <width>261</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(253, 198, 255);</string>
+          </property>
+          <property name="text">
+           <string>Prenume</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="SchimbaParola">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>40</y>
+            <width>181</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Variable Display Semib</family>
+            <pointsize>14</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+          </property>
+          <property name="text">
+           <string>Schimba Parola</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AdaugaCard">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>330</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Variable Small Semibol</family>
+            <pointsize>13</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+          </property>
+          <property name="text">
+           <string>Adauga Card</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="AdaugaBani">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>330</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Variable Display Semib</family>
+            <pointsize>13</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+          </property>
+          <property name="text">
+           <string>Adauga Bani</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="VIEWNumar">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>450</y>
+            <width>391</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>32</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="VIEWOwner">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>510</y>
+            <width>191</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>21</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="VIEWData">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>560</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>600</y>
+            <width>51</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>CVC</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="VIEWcvc">
+          <property name="geometry">
+           <rect>
+            <x>250</x>
+            <y>600</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>19</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="VIEWCARD">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>340</y>
+            <width>481</width>
+            <height>361</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(234, 234, 234);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="QtResource.qrc">:/img/img/card.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_12">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>370</y>
+            <width>111</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="QtResource.qrc">:/img/img/visa.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_13">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>470</y>
+            <width>111</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="QtResource.qrc">:/img/img/paypal.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>560</y>
+            <width>111</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="QtResource.qrc">:/img/img/applePay.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>510</y>
+            <width>51</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>Nume</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>560</y>
+            <width>81</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>Data Expirarii</string>
+          </property>
+         </widget>
+         <zorder>VIEWCARD</zorder>
+         <zorder>ContNume</zorder>
+         <zorder>ContPrenume</zorder>
+         <zorder>SchimbaParola</zorder>
+         <zorder>AdaugaCard</zorder>
+         <zorder>AdaugaBani</zorder>
+         <zorder>VIEWNumar</zorder>
+         <zorder>VIEWOwner</zorder>
+         <zorder>VIEWData</zorder>
+         <zorder>label_15</zorder>
+         <zorder>VIEWcvc</zorder>
+         <zorder>label_12</zorder>
+         <zorder>label_13</zorder>
+         <zorder>label_14</zorder>
+         <zorder>label_16</zorder>
+         <zorder>label_17</zorder>
+        </widget>
+        <widget class="QWidget" name="AdaugaCard_2">
+         <widget class="QLabel" name="label_8">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>110</y>
+            <width>131</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Numar</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>220</y>
+            <width>131</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Detinator Card</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_10">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>330</y>
+            <width>131</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Data Expirarii</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>430</y>
+            <width>131</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>CVC</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="NumarCard">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>100</y>
+            <width>361</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="Detinator">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>220</y>
+            <width>361</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="DataExpirarii">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>330</y>
+            <width>361</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="CVC">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>440</y>
+            <width>361</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="Add_Card_Button">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>560</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Variable Text Semibold</family>
+            <pointsize>16</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+          </property>
+          <property name="text">
+           <string>ADD CARD</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="SchimbaParola_2">
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>70</y>
+            <width>211</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Parola Actuala</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>320</y>
+            <width>251</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Reintroduceti Parola Noua</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>180</y>
+            <width>231</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Parola Noua</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="VerifyParola">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>70</y>
+            <width>371</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="NewParola">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>180</y>
+            <width>371</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+
+</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="NewParolaAgain">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>310</y>
+            <width>371</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #C8F7FF;   /* Setează culoarea de fundal */
+    border: 2px solid #063263;   /* Setează un contur de culoare */
+    border-radius: 5px;          /* Setează colțurile rotunjite */
+    padding: 5px;                /* Adaugă un spațiu de 5px în interiorul lineEdit-ului */
+}
+</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="NewPasswSUBMIT">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>460</y>
+            <width>201</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Variable Display Semib</family>
+            <pointsize>21</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #007aff;      /* Culorile caracteristice Apple */
+    border: 2px solid #007aff;      /* Conturul butonului */
+    border-radius: 10px;            /* Colțurile rotunjite */
+    color: white;                   /* Culoarea textului */
+    padding: 10px 20px;             /* Spațiul intern */
+}
+
+QPushButton:hover {
+    background-color: #0056b3;      /* Culoare de fundal la hover */
+}</string>
+          </property>
+          <property name="text">
+           <string>Submit</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="product_page">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QFrame" name="frame_3">
+            <property name="minimumSize">
+             <size>
+              <width>426</width>
+              <height>406</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>426</width>
+              <height>406</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(230, 230, 230);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="imageLabel">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>411</width>
+               <height>331</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+
+}
+</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="Price">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>350</y>
+               <width>91</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="Producator">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>350</y>
+               <width>131</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Producator</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="CantitateLabel">
+             <property name="geometry">
+              <rect>
+               <x>242</x>
+               <y>350</y>
+               <width>61</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Cantitate:</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="Cantitate">
+             <property name="geometry">
+              <rect>
+               <x>304</x>
+               <y>350</y>
+               <width>61</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+}
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="NextImage">
+             <property name="geometry">
+              <rect>
+               <x>370</x>
+               <y>350</y>
+               <width>41</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>NEXT</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QFrame" name="frame_4">
+            <property name="minimumSize">
+             <size>
+              <width>425</width>
+              <height>406</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>425</width>
+              <height>406</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(230, 230, 230);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="0" column="0" colspan="3">
+              <widget class="QLabel" name="titleLabel">
+               <property name="minimumSize">
+                <size>
+                 <width>371</width>
+                 <height>61</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>371</width>
+                 <height>61</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>21</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+    word-wrap: break-word;
+color:#063263;      /* Permite ca textul să se împartă pe mai multe linii */
+    text-align: center;         /* Aliniază textul pe centru */
+}
+</string>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QLabel" name="descriptionLabel">
+               <property name="minimumSize">
+                <size>
+                 <width>371</width>
+                 <height>211</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>371</width>
+                 <height>211</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+    word-wrap: break-word; 
+color:#063263;     /* Permite ca textul să se împartă pe mai multe linii */
+    text-align: center;         /* Aliniază textul pe centru */
+}
+</string>
+               </property>
+               <property name="text">
+                <string>hjk</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="LabelAdaugaCantitate">
+               <property name="minimumSize">
+                <size>
+                 <width>121</width>
+                 <height>41</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>121</width>
+                 <height>41</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+    background-color: white;    /* Setează culoarea de fundal la alb */
+    border-radius: 10px;        /* Setează colțurile rotunjite la o rază de 10px */
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Adauga Cantitatea</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="lineEditCantitate">
+               <property name="minimumSize">
+                <size>
+                 <width>131</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>131</width>
+                 <height>24</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QPushButton" name="Buy">
+               <property name="minimumSize">
+                <size>
+                 <width>111</width>
+                 <height>31</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>111</width>
+                 <height>31</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Buy</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QPushButton" name="AddReview">
+               <property name="minimumSize">
+                <size>
+                 <width>111</width>
+                 <height>31</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>111</width>
+                 <height>31</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Add Review</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QScrollArea" name="scrollArea_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>261</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>261</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QScrollBar:vertical {
+    border: none;
+    background-color: rgba(192, 192, 192, 0.5); /* Culoare gri transparent */
+    width: 12px; /* Lățimea barei de scroll */
+    margin: 20px 0 20px 0; /* Margini de sus și jos */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::handle:vertical {
+    background-color: #707070; /* Culoarea mânerului (butonului de derulare) */
+    min-height: 20px; /* Înălțime minimă a mânerului */
+    border-radius: 6px; /* Rotunjirea colțurilor */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none; /* Nu se afișează fundalul pentru butoanele de derulare */
+}
+</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollContent_3">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>855</width>
+               <height>259</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+         <zorder>frame_4</zorder>
+         <zorder>frame_3</zorder>
+         <zorder>scrollArea_3</zorder>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>131</width>
+       <height>801</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+background-color:rgb(3, 175, 251)
+}
+
+QPushButton{
+color:white;
+height:50px;
+border:none;
+border-radius:10px;
+}
+
+QPushButton:checked{
+background-color:#FFFFFF;
+color:#063263;
+font-weight:bold;
+}</string>
+     </property>
+     <widget class="QPushButton" name="dashboard_short">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cart_short">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="offerts_short">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>250</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="notifications_short">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="profile_short">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>410</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="signout_short">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>730</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MENU</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="QtResource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

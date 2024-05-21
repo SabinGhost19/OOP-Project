@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/admin.png</file>
+        <file>img/box.png</file>
+        <file>img/cart.png</file>
+        <file>img/cart_w.png</file>
+        <file>img/circle.png</file>
+        <file>img/dashboard.png</file>
+        <file>img/dashboard_w.png</file>
+        <file>img/design.png</file>
+        <file>img/exit3.png</file>
+        <file>img/facebook.png</file>
+        <file>img/filter.png</file>
+        <file>img/google.png</file>
+        <file>img/iphone15.webp</file>
+        <file>img/k.jpg</file>
+        <file>img/loading1.png</file>
+        <file>img/loading2.png</file>
+        <file>img/loading3.png</file>
+        <file>img/loading4.png</file>
+        <file>img/Logo.png</file>
+        <file>img/logo_nou.jpeg</file>
+        <file>img/notifications.png</file>
+        <file>img/notifications_w.png</file>
+        <file>img/offert.png</file>
+        <file>img/offert_w.png</file>
+        <file>img/profile_n.png</file>
+        <file>img/profile_w.png</file>
+        <file>img/search.png</file>
+        <file>img/shop.png</file>
+        <file>img/signout.png</file>
+        <file>img/signout_w.png</file>
+        <file>img/slide.png</file>
+        <file>img/yahoo.png</file>
+        <file>img/applePay.png</file>
+        <file>img/card.png</file>
+        <file>img/paypal.png</file>
+        <file>img/visa.png</file>
+        <file>img/delivery.png</file>
+        <file>img/paper.png</file>
+    </qresource>
+</RCC>
