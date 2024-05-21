@@ -7,7 +7,7 @@
 #include <ws2tcpip.h>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <stdint.h>
 
 class TCPServer
 {
@@ -27,6 +27,7 @@ public:
 	int send(const char const* send_buf, const int size);
 	int recv(char* recv_buf, const int size);
 	int sendImage(const char* imageName);
+	char* recvImage();
 	~TCPServer();
 };
 

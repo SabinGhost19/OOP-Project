@@ -15,7 +15,7 @@ public:
 	void setRole(Roles role);
 	char* getEmail();
 	char* getPassword();
-	Roles getAccountRole();
+	char* getAccountRole();
 	~Account();
 };
 
